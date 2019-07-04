@@ -30,7 +30,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">강의후기</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"> 로그인</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path }/user/login.go"> 로그인</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"> 회원가입</a>
