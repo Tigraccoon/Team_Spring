@@ -1,0 +1,28 @@
+
+
+
+--cmd창 -> sqlplus 아이디/비밀번호sqlplus system/1234
+
+
+테이블스페이스 생성
+create tablespace springteam
+datafile 'd:\springteam.dbf' size 50m
+autoextend on
+next 10m
+maxsize unlimited;
+
+
+계정 생성
+create user springteam identified by 1236
+default tablespace springteam;
+
+
+권한부여
+grant connect, resource, dba to springteam;
+
+
+--시스템계정 접속
+conn sys as sysdba/1234
+
+--암호화
+GRANT EXECUTE ON DBMS_CRYPTO TO spring;

@@ -1,0 +1,31 @@
+
+
+스프링 프로젝트 생성
+
+1. new - spring legacy project -> project name : springteam
+	-> Spring MVC Project 선택 후 next
+
+2. com.sky.springteam 후 finish
+
+
+pom.xml 설정	<properties>부터 복사
+
+web.xml 설정 -> 통채로 복사
+
+
+servlet-context.xml -> 통채로 복사 후 리소스매핑 경로 수정, context:component-scan 경로 수정, 인터셉터 주석처리]
+
+
+root-context.xml -> 통채로 복사 후 DB 계정 이름/비밀번호 변경 springteam/1236
+
+
+
+resources -> log4j.xml 빼고 복사 후 붙여넣기
+
+log4j.xml 파일 수정
+<!-- Application Loggers -->
+	<logger name="com.sky.springteam.controller">
+		<level value="info" />
+	</logger>
+
+위 부분 수정
