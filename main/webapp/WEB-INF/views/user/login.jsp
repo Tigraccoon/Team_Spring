@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +11,11 @@
 <body>
 
 
-<c:if test="${message != null }">
+<c:if test="${message1 != null }">
   <div class="form-group row justify-content-center">
     <div class="col col-auto">
 		<div class="alert alert-danger alert-dismissible fade show" role="alert">
- 			<strong>${message }</strong>&nbsp;&nbsp;확인하고 다시 로그인해주세요.
+ 			<strong>${message1 }</strong>&nbsp;&nbsp;${message2 }
   			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     			<span aria-hidden="true">&times;</span>
   			</button>
@@ -46,6 +47,8 @@
    <div class="form-group row justify-content-center">
     <div class="col col-auto">
     	<button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i>&nbsp;로그인</button>
+    	&nbsp;&nbsp;<a href="${path }/user/finduser.go" class="btn btn-info"><i class="fa fa-key"></i>&nbsp;아이디/비밀번호 찾기</a>
+    	&nbsp;&nbsp;<a href="${path }/user/signup.go" class="btn btn-info"><i class="fa fa-user-plus"></i>&nbsp;회원가입</a>
     </div>
    </div>
 </form>

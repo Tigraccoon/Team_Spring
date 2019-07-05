@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%><%@ page session="false"%>
+pageEncoding="UTF-8"%><%@ page session="true"%>
 
 <html lang="UTF-8">
 <head>
@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%><%@ page session="false"%>
       <h1 class="mb-1">SKY Education</h1>
       <h3 class="mb-5">
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">수강신청하기</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">수강신청하기${sessionScope.user.userid }</a>
     </div>
     <div class="overlay"></div>
   </header>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="user">
+	
+<!-- select -->
+	<!-- 회원정보 가져오기 -->
+	<select id="viewUser" resultType="UserDTO">
+		SELECT * FROM team_user  
+			WHERE userid=#{userid}
+	</select>
+	
+	<!-- 아이디 체크 -->
+	<select id="idcheck" resultType="int">
+		SELECT count(*) FROM team_user 
+			WHERE userid=#{userid}
+	</select>
+	
+	<!-- 비밀번호 체크 -->
+	<select id="pwdcheck" resultType="int">
+		SELECT count(*) FROM team_user  
+			WHERE userid=#{userid} AND pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd})
+	</select>
+	
+<!-- /select -->
+	
+<!-- insert -->
+	
+<!-- /insert -->
+	
+<!-- update -->
+	<!-- 마지막 로그인 갱신 -->
+	<update id="updatelastlogin">
+		UPDATE team_user SET lastlogin=sysdate
+			WHERE userid=#{userid}
+	</update>
+	
+<!-- /update -->
+	
+<!-- delete -->
+	
+<!-- /delete -->
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

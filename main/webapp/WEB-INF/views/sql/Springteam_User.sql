@@ -71,3 +71,23 @@ lastlogin date default sysdate,
 user_group varchar2(2) default '1',
 class_name varchar2(100)
 );
+
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name) 
+    values ('admin',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('admin'), '관리자', 'admin@admin.com', '000', '3', '관리자');
+    
+
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name) 
+    values ('kim', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김철수', 'kim@kim.com', '000-0000-0000', '1', '정보처리기사실기');
+
+SELECT * FROM team_user  
+			WHERE userid='kim' AND pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234');
+
+select * from team_user;
+
+UPDATE team_user SET lastlogin=sysdate
+			WHERE userid='kim';
+            
+            
+delete from team_user;
+        
+commit;

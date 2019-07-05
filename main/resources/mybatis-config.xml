@@ -5,11 +5,7 @@
 <configuration>
 
 	<typeAliases>
-		<!-- <typeAlias type="com.example.spring02.model.shop.dto.ProductDTO" alias="ProductDTO"/>
-		<typeAlias type="com.example.spring02.model.member.dto.MemberDTO" alias="MemberDTO"/>
-		<typeAlias type="com.example.spring02.model.shop.dto.CartDTO" alias="CartDTO"/>
-		<typeAlias type="com.example.spring02.model.board.dto.BoardDTO" alias="BoardDTO"/>
-		<typeAlias type="com.example.spring02.model.board.dto.ReplyDTO" alias="ReplyDTO"/> -->
+		<typeAlias type="com.sky.springteam.model.user.dto.UserDTO" alias="UserDTO"/>
 	</typeAliases>
 	
 </configuration>
