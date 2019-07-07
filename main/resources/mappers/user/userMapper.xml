@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -25,16 +25,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE userid=#{userid} AND pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd})
 	</select>
 	
+	<!-- 이메일 체크 -->
+	<select id="emailcheck" resultType="int">
+		SELECT count(*) FROM team_user
+			WHERE email=#{email}		
+	</select>
+	
+	<!-- 이메일, 이름으로 찾기 -->
+	<select id="finduser" resultType="UserDTO">
+		SELECT * FROM team_user
+			WHERE email=#{email} AND name=#{name}
+	</select>
+	
 <!-- /select -->
 	
 <!-- insert -->
-	
+	<!-- 회원가입 -->
+	<insert id="insertuser">
+		INSERT INTO team_user(userid, pwd, name, email, tel, zipcode, address1, address2) 
+			VALUES(#{userid}, PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd}), #{name}, #{email}
+			, #{tel}, #{zipcode}, #{address1}, #{address2})
+	</insert>
 <!-- /insert -->
 	
 <!-- update -->
 	<!-- 마지막 로그인 갱신 -->
 	<update id="updatelastlogin">
 		UPDATE team_user SET lastlogin=sysdate
+			WHERE userid=#{userid}
+	</update>
+	
+	<!-- 회원정보 업데이트 -->
+	<update id="updateuser">
+		UPDATE team_user SET pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd}) 
+			, name=#{name}, email=#{email}, tel=#{tel}, zipcode=#{zipcode}
+			, address1=#{address1}, address2=#{address2}
 			WHERE userid=#{userid}
 	</update>
 	

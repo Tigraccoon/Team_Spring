@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void insertUser(UserDTO dto) {
 		
-		
+		userDao.insertUser(dto);
 	}
 
 	@Override
@@ -65,13 +65,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean emailCheck(String email) {
 		
-		return false;
+		return userDao.emailCheck(email);
 	}
 
 	@Override
 	public UserDTO findUser(String email, String name) {
 		
-		return null;
+		return userDao.findUser(email, name);
 	}
 
 }

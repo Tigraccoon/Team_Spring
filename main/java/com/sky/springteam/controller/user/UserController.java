@@ -20,7 +20,7 @@ public class UserController {
 	
 	//링크 이동
 	@RequestMapping("login.go")
-	public String logingo() {
+	public String logingo(@RequestParam String message1, @ReqeustParam String message2) {
 		return "user/login";
 	}
 	
@@ -29,9 +29,24 @@ public class UserController {
 		return "user/finduser";
 	}
 	
+	@RequestMapping("finduser2.go")
+	public String finduser2go() {
+		return "user/finduser2";
+	}
+	
 	@RequestMapping("signup.go")
 	public String signupgo() {
 		return "user/signup1";
+	}
+	
+	@RequestMapping("signup2.go")
+	public String signup2go() {
+		return "user/signup2";
+	}
+	
+	@RequestMapping("signup3.go")
+	public String signup3go() {
+		return "user/signup3";
 	}
 	
 	//마이페이지
@@ -83,6 +98,67 @@ public class UserController {
 		
 		return "redirect:/user/login.go?message1='로그아웃되었습니다.'";
 	}
+	
+	
+	@RequestMapping("signup1.do")
+	public ModelAndView signup1do (@ModelAttribute UserDTO dto, ModelAndView mav) {
+		
+		if(userService.idCheck(dto.getUserid())) {
+			//아이디 중복
+			
+			mav.setViewName("user/signup1.go");
+			mav.addObject("hasUserid", "이미 가입된 아이디입니다.");
+			if(userService.emailCheck(dto.getEmail())){
+				mav.addObject("hasEmail", "이미 가입된 이메일입니다.");
+			}
+		} else {
+			//아이디 중복 아님
+			if(userService.emailCheck(dto.getEmail())){
+				mav.setViewName("user/signup1.go");
+				mav.addObject("hasEmail", "이미 가입된 이메일입니다.");
+			} else {
+				//아이디, 이메일 중복 아님
+				mav.setViewName("user/signup2.go");
+				mav.addObject("userid", dto.getUserid());
+				mav.addObject("email", dto.getEmail());
+			}
+			
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping("signup2.do")
+	public ModelAndView signup2do (@ModelAttribute UserDTO dto, ModelAndView mav) {
+		
+		userService.insertUser(dto);
+		mav.setViewName("user/signup3.go");
+		mav.addObject("userid", dto.getUserid());
+		
+		return mav;
+	}
+	
+	@RequestMapping("finduser.do")
+	public ModelAndView finduser(@ModelAttribute UserDTO dto, ModelAndView mav) {
+		
+		dto = userService.findUser(dto.getEmail(), dto.getName());
+		
+		if(dto.getUserid().equals("아이디, 비밀번호 찾기에 실패하였습니다. 이메일, 이름을 확인하세요!")) {
+			mav.setViewName("user/finduser");
+			mav.addObject("cantfind", dto.getUserid());
+			mav.addObject("email", dto.getEmail());
+			mav.addObject("name", dto.getName());
+			
+		} else {
+			mav.setViewName("user/finduser2.go");
+			mav.addObject("userid", dto.getUserid());
+			mav.addObject("pwd", dto.getPwd());
+			
+		}
+		return mav;
+	}
+	
+	
 	
 	
 }
