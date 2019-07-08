@@ -8,6 +8,7 @@
 <%@include file="../include/header.jsp" %>
 </head>
 <body>
+<%@ include file="../include/menu.jsp" %>
 
 <div class="container-fluid">
  <div class="row justify-content-center">

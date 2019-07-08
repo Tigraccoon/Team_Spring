@@ -4,19 +4,20 @@ import java.util.Date;
 
 public class UserDTO {
 	
-	private String userid;
-	private String pwd;
-	private String name;
-	private String email;
-	private String tel;
-	private String zipcode;
-	private String address1;
-	private String address2;
-	private Date joindate;
-	private Date lastlogin;
-	private String user_group;
-	private String class_name;
-	private int cnt;
+	//로그인시 user.변수명으로 세션에 등록 ex) user.userid : 아이디
+	private String userid;		//아이디
+	private String pwd;			//비밀번호
+	private String name;		//이름
+	private String email;		//이메일
+	private String tel;			//전화번호
+	private String zipcode;		//우편번호
+	private String address1;	//주소
+	private String address2;	//상세주소
+	private Date joindate;		//가입일
+	private Date lastlogin;		//마지막 로그인
+	private String user_group;	//회원 그룹 - 1: 일반회원, 2: 강사, 3: 관리자 
+	private String class_name;	//일반회원 : 수강중인 강의 / 강사 : 강의 과목
+	private int cnt;			//회원 수
 	
 	//getter&setter
 	public String getUserid() {

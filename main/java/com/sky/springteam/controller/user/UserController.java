@@ -4,8 +4,10 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sky.springteam.model.user.dto.UserDTO;
@@ -20,7 +22,11 @@ public class UserController {
 	
 	//링크 이동
 	@RequestMapping("login.go")
-	public String logingo(@RequestParam String message1, @ReqeustParam String message2) {
+	public String logingo(@RequestParam(defaultValue="") String message1, 
+						@RequestParam(defaultValue="") String message2, Model model) {
+		model.addAttribute("message1", message1);
+		model.addAttribute("message2", message2);
+		
 		return "user/login";
 	}
 	
@@ -47,6 +53,13 @@ public class UserController {
 	@RequestMapping("signup3.go")
 	public String signup3go() {
 		return "user/signup3";
+	}
+	
+	@RequestMapping("pwdcheck.go")
+	public String pwdcheckgo(@RequestParam(defaultValue="") String message, Model model) {
+		model.addAttribute("message", message);
+		
+		return "user/pwdcheck";
 	}
 	
 	//마이페이지
@@ -92,11 +105,11 @@ public class UserController {
 	}
 	
 	@RequestMapping("logout.do")
-	public String logoutdo(HttpSession session) {
+	public String logoutdo(HttpSession session, Model model) {
 		
 		session.invalidate();
-		
-		return "redirect:/user/login.go?message1='로그아웃되었습니다.'";
+		model.addAttribute("message1", "로그아웃 되었습니다.");
+		return "/user/login";
 	}
 	
 	
@@ -106,7 +119,7 @@ public class UserController {
 		if(userService.idCheck(dto.getUserid())) {
 			//아이디 중복
 			
-			mav.setViewName("user/signup1.go");
+			mav.setViewName("user/signup1");
 			mav.addObject("hasUserid", "이미 가입된 아이디입니다.");
 			if(userService.emailCheck(dto.getEmail())){
 				mav.addObject("hasEmail", "이미 가입된 이메일입니다.");
@@ -114,11 +127,11 @@ public class UserController {
 		} else {
 			//아이디 중복 아님
 			if(userService.emailCheck(dto.getEmail())){
-				mav.setViewName("user/signup1.go");
+				mav.setViewName("user/signup1");
 				mav.addObject("hasEmail", "이미 가입된 이메일입니다.");
 			} else {
 				//아이디, 이메일 중복 아님
-				mav.setViewName("user/signup2.go");
+				mav.setViewName("user/signup2");
 				mav.addObject("userid", dto.getUserid());
 				mav.addObject("email", dto.getEmail());
 			}
@@ -132,7 +145,7 @@ public class UserController {
 	public ModelAndView signup2do (@ModelAttribute UserDTO dto, ModelAndView mav) {
 		
 		userService.insertUser(dto);
-		mav.setViewName("user/signup3.go");
+		mav.setViewName("user/signup3");
 		mav.addObject("userid", dto.getUserid());
 		
 		return mav;
@@ -150,7 +163,7 @@ public class UserController {
 			mav.addObject("name", dto.getName());
 			
 		} else {
-			mav.setViewName("user/finduser2.go");
+			mav.setViewName("user/finduser2");
 			mav.addObject("userid", dto.getUserid());
 			mav.addObject("pwd", dto.getPwd());
 			
@@ -158,7 +171,36 @@ public class UserController {
 		return mav;
 	}
 	
+	@RequestMapping("pwdcheck.do")
+	public ModelAndView pwdcheckdo(@ModelAttribute UserDTO dto, ModelAndView mav) {
+		
+		if(userService.pwdCheck(dto.getUserid(), dto.getPwd())) {
+			//비밀번호 맞음
+			mav.setViewName("user/updateuser");
+			
+		} else {
+			mav.setViewName("user/pwdcheck");
+			mav.addObject("message", "비밀번호가 다릅니다!");
+		}
+		
+		return mav;
+	}
 	
+	@RequestMapping("updateuser.do")
+	public void updateuserdo(@ModelAttribute UserDTO dto, Model model, HttpSession session) {
+		
+		userService.updateUser(dto);
+		
+		logoutdo(session, model);
+	}
+	
+	@RequestMapping("deleteuser.do")
+	public void deleteuserdo(@ModelAttribute UserDTO dto, Model model, HttpSession session) {
+		
+		userService.deleteUser(dto.getUserid());
+		
+		logoutdo(session, model);
+	}
 	
 	
 }

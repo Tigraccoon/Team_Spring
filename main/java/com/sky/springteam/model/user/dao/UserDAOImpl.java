@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.sky.springteam.model.user.dto.UserDTO;
 
@@ -38,7 +37,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	@Transactional
 	public UserDTO viewUser(String userid) {
 		sqlSession.update("user.updatelastlogin", userid);
 		
@@ -48,7 +46,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void deleteUser(String userid) {
 		
-		
+		sqlSession.delete("user.deleteuser", userid);
 	}
 
 	@Override
@@ -112,8 +110,8 @@ public class UserDAOImpl implements UserDAO {
 			Random r = new Random();
 
 			while(true) {
-				tempPwd = r.nextInt(9999);
-				if (tempPwd > 1000) break;
+				tempPwd = r.nextInt(999999);
+				if (tempPwd > 100000) break;
 			}
 			dto.setPwd(String.valueOf(tempPwd));
 			updateUser(dto);

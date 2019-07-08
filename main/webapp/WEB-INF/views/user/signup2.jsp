@@ -8,6 +8,10 @@
 <%@include file="../include/header.jsp" %>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$("#postcodify_search_button").postcodifyPopUp();
+});
+
 function doSubmit(){
 	var userid = $("#userid");
 	var pwd = $("#pwd");
@@ -50,7 +54,22 @@ function doSubmit(){
 </script>
 </head>
 <body>
+<%@ include file="../include/menu.jsp" %>
+<div class="progress" style="height: 50px;">
+	<div class="progress-bar bg-primary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+		<a href="${path }/user/signup1.go" class="btn btn-block text-dark"><i class="fa fa-check"></i>&nbsp;아이디/이메일 중복확인</a>
+	</div>
+	<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+		<a href="#" class="btn btn-block text-light"><i class="fa fa-map-marker"></i>&nbsp;상세 정보 입력</a>
+	</div>
+	<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+		<a href="#" class="btn btn-block text-dark"><i class="fa fa-spinner"></i>&nbsp;회원가입 완료</a>
+	</div>
+</div>
 
+<br><hr><br><br>
+  	
+  	
 <div class="container-fluid">
  <div class="row justify-content-center">
   <div class="col col-md-8">

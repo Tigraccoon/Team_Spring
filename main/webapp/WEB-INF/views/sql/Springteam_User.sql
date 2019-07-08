@@ -59,7 +59,7 @@ drop table team_user;
 
 create table team_user (
 userid varchar2(100) not null primary key,
-pwd varchar(64) not null, --varchar2가 아닌 varchar로 설정
+pwd varchar(64) not null, 
 name varchar2(50) not null,
 email varchar2(150) not null unique,
 tel varchar2(50) not null,
@@ -91,3 +91,6 @@ UPDATE team_user SET lastlogin=sysdate
 delete from team_user;
         
 commit;
+
+update team_user set pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234')
+    where userid='park';

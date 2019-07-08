@@ -13,8 +13,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
    <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#">
-      <img src="resources/img/sky_w.png" style="width: 160px; height: auto;"></a>
+      <a class="navbar-brand js-scroll-trigger" href="${path }/">
+      <img src="${path }/img/sky_w.png" style="width: 160px; height: auto;"></a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -40,7 +40,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           </c:if>
           <c:if test="${user.userid != null }">
 	          <li class="nav-item mx-0 mx-lg-1">
-	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path }/user/updateuser.go"> 마이페이지</a>
+	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path }/user/pwdcheck.go"> 마이페이지</a>
 	          </li>
 	          <li class="nav-item mx-0 mx-lg-1">
 	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path }/user/logout.do"> 로그아웃</a>
@@ -50,5 +50,5 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       </div>
     </div>
   </nav>
-
+<br><br><br><br><br>
 

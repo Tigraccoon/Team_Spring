@@ -27,6 +27,8 @@ function doSubmit(){
 </script>
 </head>
 <body>
+<%@ include file="../include/menu.jsp" %>
+
 <div class="container-fluid">
  <div class="row justify-content-center">
   <div class="col col-md-8">
@@ -59,7 +61,6 @@ function doSubmit(){
     		</div>
   		</div>
   		
-  		
 		<br>
 		<div class="form-group row justify-content-center">
 			<div class="col col-auto">
@@ -68,8 +69,6 @@ function doSubmit(){
 		</div>
 	
 	</form>
-	
-	
 	
   </div>
  </div>

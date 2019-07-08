@@ -9,9 +9,10 @@
 <%@ include file="../include/header.jsp" %>
 </head>
 <body>
+<%@ include file="../include/menu.jsp" %>
 
 
-<c:if test="${message1 != null }">
+<c:if test="${message1 != '' }">
   <div class="form-group row justify-content-center">
     <div class="col col-auto">
 		<div class="alert alert-danger alert-dismissible fade show" role="alert">
