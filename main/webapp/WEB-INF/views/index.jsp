@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
       <h1 class="mb-1">SKY Education</h1>
       <h3 class="mb-5">
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">수강신청하기${sessionScope.user.userid }</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">수강신청하기</a>
     </div>
     <div class="overlay"></div>
   </header>
@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
     <div class="container text-center">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-        <p><img alt="로고" src="resources/img/sky_b.png"></p>
+        <p><img alt="로고" src="${path }/img/sky_b.png"></p>
           <h2>SKY Education!</h2>
           <p class="lead mb-5">최고의 강사진들의 강의를
             <a href="https://unsplash.com/">지금</a>! 바로 신청하세요</p>
@@ -102,7 +102,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
                 <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
               </span>
             </span>
-            <img class="img-fluid" src="resources/img/portfolio-1.jpg" alt="">
+            <img class="img-fluid" src="${path }/img/portfolio-1.jpg" alt="">
           </a>
         </div>
         <div class="col-lg-6">
@@ -113,7 +113,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
                 <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
               </span>
             </span>
-            <img class="img-fluid" src="resources/img/portfolio-2.jpg" alt="">
+            <img class="img-fluid" src="${path }/img/portfolio-2.jpg" alt="">
           </a>
         </div>
         <div class="col-lg-6">
@@ -124,7 +124,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
                 <p class="mb-0">Straw are such a tasty snack, especially with a little sugar on top!</p>
               </span>
             </span>
-            <img class="img-fluid" src="resources/img/portfolio-3.jpg" alt="">
+            <img class="img-fluid" src="${path }/img/portfolio-3.jpg" alt="">
           </a>
         </div>
         <div class="col-lg-6">
@@ -135,7 +135,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
                 <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
               </span>
             </span>
-            <img class="img-fluid" src="resources/img/portfolio-4.jpg" alt="">
+            <img class="img-fluid" src="${path }/img/portfolio-4.jpg" alt="">
           </a>
         </div>
       </div>
@@ -148,7 +148,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
     <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
     <br />
     <small>
-      <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+      <a href="https://www.google.com/maps/@37.5621703,127.0329783,17z"></a>
     </small>
   </section>
 
@@ -156,20 +156,16 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
   <!-- Footer -->
 <%@ include file="include/footer.jsp" %>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
-  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+  <script src="<c:url value="${path }/js/jquery/jquery.min.js" />"></script>
+  <script src="<c:url value="${path }/js/bootstrap/js/bootstrap.bundle.min.js" />"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="<c:url value="/vendor/jquery-easing/jquery.easing.min.js" />"></script>
+  <script src="<c:url value="${path }/js/jquery-easing/jquery.easing.min.js" />"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="<c:url value="/resources/js/stylish-portfolio.min.js" />"></script>
+  <script src="<c:url value="${path }/js/stylish-portfolio.min.js" />"></script>
 
 </body>
 

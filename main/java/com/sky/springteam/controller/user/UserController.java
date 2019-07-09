@@ -106,9 +106,10 @@ public class UserController {
 	
 	@RequestMapping("logout.do")
 	public String logoutdo(HttpSession session, Model model) {
-		
+		System.out.println("\r\r로그아웃\r\r");
 		session.invalidate();
 		model.addAttribute("message1", "로그아웃 되었습니다.");
+		
 		return "/user/login";
 	}
 	
@@ -187,19 +188,19 @@ public class UserController {
 	}
 	
 	@RequestMapping("updateuser.do")
-	public void updateuserdo(@ModelAttribute UserDTO dto, Model model, HttpSession session) {
+	public String updateuserdo(@ModelAttribute UserDTO dto) {
 		
 		userService.updateUser(dto);
 		
-		logoutdo(session, model);
+		return "redirect:/user/logout.do";
 	}
 	
 	@RequestMapping("deleteuser.do")
-	public void deleteuserdo(@ModelAttribute UserDTO dto, Model model, HttpSession session) {
+	public String deleteuserdo(@ModelAttribute UserDTO dto) {
 		
 		userService.deleteUser(dto.getUserid());
 		
-		logoutdo(session, model);
+		return "redirect:/user/logout.do";
 	}
 	
 	

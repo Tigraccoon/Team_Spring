@@ -8,9 +8,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" 
 uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<script src="${path}/include/jquery-3.3.1.min.js"></script>
+<script src="${path}/js/jquery-3.3.1.min.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-<link rel="stylesheet" href="${path}/include/style.css">
 
 
 
@@ -44,7 +43,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
         <!-- Footer About Text -->
         <div class="col-lg-4">
           <h4 class="text-uppercase mb-4">SKY Academy</h4>
-          <p class="lead mb-0"> <img src="resources/img/sky_w.png" style="width: 150px; height: auto;"></p>
+          <p class="lead mb-0"> <img src="${path}/img/sky_w.png" style="width: 150px; height: auto;"></p>
     springteam created by
             <a href="http://startbootstrap.com">SKY</a>.
         </div>

@@ -19,8 +19,8 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
 	<!-- 리소스 매핑 -->
+	<resources mapping="/resources/**" location="/resources/" />
 	<resources location="/WEB-INF/views/include/" mapping="/include/**" />
 	<resources location="/WEB-INF/views/js/" mapping="/js/**" />
 	<resources location="/WEB-INF/views/css/" mapping="/css/**" />

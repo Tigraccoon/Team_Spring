@@ -9,8 +9,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
- 
-   <!-- Navigation -->
+  
+ <!-- Navigation -->
+ <div style="margin-bottom: 114px;">
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="${path }/">
@@ -30,6 +31,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">강의후기</a>
           </li>
+          
+          
           <c:if test="${user.userid == null }">
 	          <li class="nav-item mx-0 mx-lg-1">
 	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path }/user/login.go"> 로그인</a>
@@ -49,6 +52,54 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </ul>
       </div>
     </div>
-  </nav>
-<br><br><br><br><br>
+  </nav> 
+</div>  
+  
+  
+<%-- 
+ <!-- Bootstrap core CSS -->
+<link href="../views/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+ 
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="${path }/">
+  <img src="${path }/img/sky_w.png" style="width: 160px; height: auto;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">강의소개</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">수강신청</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">강의후기</a>
+      </li>
+      
+   
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mypage</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown03">
+          <c:if test="${user.userid == null }">
+          <a class="dropdown-item" href="${path }/user/login.go">로그인</a>
+          <a class="dropdown-item" href="#">회원가입</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search">
+    </form>
+  </div>
+</nav>
+ --%>
+
 
