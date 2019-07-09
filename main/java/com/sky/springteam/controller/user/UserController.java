@@ -24,6 +24,11 @@ public class UserController {
 	@RequestMapping("login.go")
 	public String logingo(@RequestParam(defaultValue="") String message1, 
 						@RequestParam(defaultValue="") String message2, Model model) {
+		if(message1.equals("havetologin")) {
+			message1 = "잘못된 접근입니다!";
+			message2 = "로그인 후 이용해주세요!";
+		}
+		
 		model.addAttribute("message1", message1);
 		model.addAttribute("message2", message2);
 		
@@ -41,7 +46,13 @@ public class UserController {
 	}
 	
 	@RequestMapping("signup.go")
-	public String signupgo() {
+	public String signupgo(@RequestParam(defaultValue="") String error, Model model) {
+		if(error.equals("error")) {
+			model.addAttribute("error", "잘못된 접근입니다!");
+		} else {
+			model.addAttribute("error", "");
+		}
+		
 		return "user/signup1";
 	}
 	
@@ -71,11 +82,11 @@ public class UserController {
 	
 	//링크+데이터 이동
 	@RequestMapping("login.do")
-	public ModelAndView logindo(HttpSession session, ModelAndView mav, @ModelAttribute UserDTO dto) {
+	public ModelAndView logindo(@ModelAttribute UserDTO dto, HttpSession session, ModelAndView mav) {
 		
 		String userid = dto.getUserid();
 		String pwd = dto.getPwd();
-		
+		System.out.println("\r"+userid+"\r");
 		if(userService.idCheck(userid)) {	//아이디 검사
 			//아이디 있음
 			

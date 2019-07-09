@@ -9,8 +9,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <script src="${path}/js/jquery-3.3.1.min.js"></script>
-<!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
 
 
 <!-- Footer -->

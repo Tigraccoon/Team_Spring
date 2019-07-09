@@ -20,15 +20,16 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
 	<!-- 리소스 매핑 -->
-	<resources mapping="/resources/**" location="/resources/" />
 	<resources location="/WEB-INF/views/include/" mapping="/include/**" />
 	<resources location="/WEB-INF/views/js/" mapping="/js/**" />
 	<resources location="/WEB-INF/views/css/" mapping="/css/**" />
 	<resources location="/WEB-INF/views/img/" mapping="/img/**" />
+	<resources location="/WEB-INF/views/font/" mapping="/font/**" />
+	<resources location="/WEB-INF/views/webfonts/" mapping="/webfonts/**" />
+	<resources location="/WEB-INF/views/fonts/" mapping="/fonts/**" />
 	<resources location="/WEB-INF/views/json/" mapping="/json/**" />
 	<resources location="/WEB-INF/views/include/ckeditor/" mapping="/ckeditor/**" />
 	<resources location="/WEB-INF/views/include/summernote/" mapping="/summernote/**" />
-	<resources location="/resources/" mapping="/resources/**" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 	<beans:bean
@@ -55,33 +56,27 @@
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     
     <!-- 인터셉터 빈 등록 -->
-	<!-- <beans:bean id="sampleInterceptor" class="com.example.spring02.interceptor.SampleInterceptor" />
-	<beans:bean id="loginInterceptor" class="com.example.spring02.interceptor.LoginInterceptor" />
-	<beans:bean id="adminInterceptor" class="com.example.spring02.interceptor.AdminInterceptor" />
-	 -->
+	<beans:bean id="loginInterceptor" class="com.sky.springteam.interceptor.LoginInterceptor" />
+	<beans:bean id="signupInterceptor" class="com.sky.springteam.interceptor.SignupInterceptor" />
 	<!-- 인터셉터 호출을 위한 url mapping -->
-	<!-- <interceptors>
+	<interceptors>
 		<interceptor>
-			<mapping path="/shop/**"/>
-			<beans:ref bean="sampleInterceptor"/>
-		</interceptor>
-		<interceptor>
-			<mapping path="/shop/cart/list.do"/>
-			<mapping path="/shop/cart/insert.do"/>
-			<mapping path="/board/write.do"/>
-			<mapping path="/board/insert.do"/>
-			<mapping path="/board/update.do"/>
-			<mapping path="/board/delete.do"/>
+			<mapping path="/user/pwdcheck.go"/>
+			<mapping path="/user/updateuser.go"/>
+			<mapping path="/user/logout.do"/>
+			<mapping path="/user/pwdcheck.do"/>
+			<mapping path="/user/updateuser.do"/>
+			<mapping path="/user/deleteuser.do"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 		<interceptor>
-			<mapping path="/chart/**"/>
-			<mapping path="/jchart/**"/>
-			<mapping path="/shop/product/write.do"/>
-			<mapping path="/shop/product/insert.do"/>
-			<beans:ref bean="adminInterceptor"/>
+			<mapping path="/user/signup1.do"/>
+			<mapping path="/user/signup2.do"/>
+			<mapping path="/user/signup2.go"/>
+			<mapping path="/user/signup3.go"/>
+			<beans:ref bean="signupInterceptor"/>
 		</interceptor>
-	</interceptors> -->
+	</interceptors>
 		    
     
 </beans:beans>

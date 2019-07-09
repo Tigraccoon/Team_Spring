@@ -51,7 +51,20 @@ function doSubmit(){
   	
   
 	<form action="${path }/user/signup1.do" method="post" id="form1" name="form1">
-	
+		
+		<c:if test="${error != '' }">
+  			<div class="form-group row justify-content-center">
+    			<div class="col col-auto">
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+ 						<strong>${error }</strong>
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  						</button>
+					</div>
+    			</div>
+  			</div>
+  		</c:if>
+		
   		<c:if test="${hasUserid != null }">
   			<div class="form-group row justify-content-center">
     			<div class="col col-auto">

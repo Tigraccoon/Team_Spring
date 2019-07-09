@@ -158,14 +158,14 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="<c:url value="${path }/js/jquery/jquery.min.js" />"></script>
-  <script src="<c:url value="${path }/js/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+  <script src="${path }/js/jquery.min.js" /></script>
+  <script src="${path }/js/bootstrap.bundle.min.js" /></script>
 
   <!-- Plugin JavaScript -->
-  <script src="<c:url value="${path }/js/jquery-easing/jquery.easing.min.js" />"></script>
+  <script src="${path }/js/jquery.easing.min.js" /></script>
 
   <!-- Custom scripts for this template -->
-  <script src="<c:url value="${path }/js/stylish-portfolio.min.js" />"></script>
+  <script src="${path }/js/stylish-portfolio.min.js" /></script>
 
 </body>
 
