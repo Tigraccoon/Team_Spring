@@ -2,6 +2,7 @@ package com.sky.springteam.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -12,14 +13,24 @@ public class SignupInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
-		if(request.getAttribute("userid") == null || request.getAttribute("dto") == null) {
-			response.sendRedirect(request.getContextPath() + "/user/signup.go?error=error");
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("user") != null) {
+			response.sendRedirect(request.getContextPath() + "/");
 			
 			return false;
 		} else {
 			
-			return true;
+			if(request.getParameter("userid") == null) {
+				response.sendRedirect(request.getContextPath() + "/user/signup.go?error=error");
+				
+				return false;
+			} else {
+				
+				return true;
+			}
 		}
+		
 		
 	}
 	

@@ -50,7 +50,7 @@ public class UserController {
 		if(error.equals("error")) {
 			model.addAttribute("error", "잘못된 접근입니다!");
 		} else {
-			model.addAttribute("error", "");
+			model.addAttribute("error", "nomessage");
 		}
 		
 		return "user/signup1";

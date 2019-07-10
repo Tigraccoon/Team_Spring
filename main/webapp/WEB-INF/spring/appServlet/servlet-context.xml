@@ -70,6 +70,7 @@
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 		<interceptor>
+			<mapping path="/user/signup.go"/>
 			<mapping path="/user/signup1.do"/>
 			<mapping path="/user/signup2.do"/>
 			<mapping path="/user/signup2.go"/>

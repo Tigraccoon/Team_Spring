@@ -15,7 +15,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute("user.userid") == null) {
+		if(session.getAttribute("user") == null) {
 			response.sendRedirect(request.getContextPath() + "/user/login.go?message1=havetologin");
 			
 			return false;

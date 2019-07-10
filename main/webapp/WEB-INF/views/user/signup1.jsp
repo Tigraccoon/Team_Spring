@@ -52,7 +52,7 @@ function doSubmit(){
   
 	<form action="${path }/user/signup1.do" method="post" id="form1" name="form1">
 		
-		<c:if test="${error != '' }">
+		<c:if test="${error != 'nomessage' }">
   			<div class="form-group row justify-content-center">
     			<div class="col col-auto">
 					<div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -35,5 +35,11 @@ public class HomeController {
 		
 		return "index";
 	}
+	@RequestMapping("**/favicon.ico")
+    public String favicon() {
+        return "forward:/font/favicon.ico";
+    }
+
+
 	
 }
