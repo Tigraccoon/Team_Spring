@@ -6,6 +6,8 @@
 
 	<typeAliases>
 		<typeAlias type="com.sky.springteam.model.user.dto.UserDTO" alias="UserDTO"/>
+		<typeAlias type="com.sky.springteam.model.board.dto.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.sky.springteam.model.board.dto.CommentDTO" alias="CommentDTO"/>
 	</typeAliases>
 	
 </configuration>
