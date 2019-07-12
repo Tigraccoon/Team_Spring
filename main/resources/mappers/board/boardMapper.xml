@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM (
 			SELECT rownum AS rn, 
 			A.* FROM (
-				SELECT b_num,b_writer,b_subject,b_date,b_readcount,b_show,b_secret
+				SELECT b_num,b_writer,b_subject,b_date,b_readcount,b_show,b_secret, b_category
 	  				,(select count(*) from team_comment c where c.b_num=b.b_num) c_count 					
 					FROM team_board b, team_user u 
 					<include refid="search" />
@@ -50,6 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="search">
 		WHERE b.b_writer = u.userid 
 		AND b.b_show='Y' 
+		AND b.b_category LIKE #{b_category} 
 		AND (b.b_writer LIKE #{keyword} OR b.b_subject LIKE #{keyword})
 	</sql>
 <!-- /sql -->

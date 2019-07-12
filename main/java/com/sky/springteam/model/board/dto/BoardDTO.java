@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BoardDTO {
 	private int b_num;			//게시글 번호
+	private String b_category;	//카테고리
 	private String b_writer;	//작성자 references team_user(userid)
 	private String b_subject;	//제목
 	private int b_point;		//별점
@@ -21,6 +22,12 @@ public class BoardDTO {
 	}
 	public void setB_num(int b_num) {
 		this.b_num = b_num;
+	}
+	public String getB_category() {
+		return b_category;
+	}
+	public void setB_category(String b_category) {
+		this.b_category = b_category;
 	}
 	public String getB_writer() {
 		return b_writer;
@@ -90,10 +97,12 @@ public class BoardDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardDTO [b_num=" + b_num + ", b_writer=" + b_writer + ", b_subject=" + b_subject + ", b_point="
-				+ b_point + ", b_content=" + b_content + ", b_readcount=" + b_readcount + ", b_date=" + b_date
-				+ ", b_ip=" + b_ip + ", b_show=" + b_show + ", b_secret=" + b_secret + ", b_count=" + b_count
-				+ ", c_count=" + c_count + "]";
+		return "BoardDTO [b_num=" + b_num + ", b_category=" + b_category + ", b_writer=" + b_writer + ", b_subject="
+				+ b_subject + ", b_point=" + b_point + ", b_content=" + b_content + ", b_readcount=" + b_readcount
+				+ ", b_date=" + b_date + ", b_ip=" + b_ip + ", b_show=" + b_show + ", b_secret=" + b_secret
+				+ ", b_count=" + b_count + ", c_count=" + c_count + "]";
 	}
+	
+	
 	
 }

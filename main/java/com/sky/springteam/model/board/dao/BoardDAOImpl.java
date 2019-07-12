@@ -18,11 +18,12 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<BoardDTO> b_list(String keyword, int begin, int end) {
+	public List<BoardDTO> b_list(String b_category, String keyword, int begin, int end) {
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("begin", begin);
 		map.put("end", end);
+		map.put("b_category", b_category);
 		map.put("keyword", keyword);
 		
 		return sqlSession.selectList("board.b_list", map);
@@ -59,8 +60,12 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public int b_count(String keyword) {
-		return sqlSession.selectOne("board.b_count", keyword);
+	public int b_count(String b_category, String keyword) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("b_category", b_category);
+		map.put("keyword", keyword);
+		
+		return sqlSession.selectOne("board.b_count", map);
 	}
 
 	@Override

@@ -3,6 +3,7 @@ drop table team_board;
 create table team_board (
 b_num number not null primary key, --게시물번호 
 b_writer varchar2(100) not null references team_user(userid), --작성자
+b_category varchar2(50) not null, --카테고리, references 강좌명 넣을 예정
 b_subject varchar2(150) not null, --제목
 b_point number not null,    --별점
 b_content clob not null, --본문
@@ -18,8 +19,12 @@ create sequence seq_board
 start with 1
 increment by 1;
 
-INSERT INTO  team_board(b_num, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, 'kim', '테스트글', 5, '테스트글본문이다!', '1.1.1.1');
-INSERT INTO  team_board(b_num, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, 'kim', 'a', 5, 'a!', '1.1.1.1');
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '정보처리기사실기', 'kim', '테스트글', 5, '테스트글본문이다!', '1.1.1.1');
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '정보처리기사필기', 'kim', 'a', 5, 'a!', '1.1.1.1');
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '웹프로그래밍초급', 'kim', 'a', 5, 'a!', '1.1.1.1');
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '웹프로그래밍고급', 'kim', 'a', 5, 'a!', '1.1.1.1');
+
+select * from team_board where b_category like '%';
 
 select * from team_board;
 

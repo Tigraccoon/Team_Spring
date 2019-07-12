@@ -16,9 +16,9 @@ public class BoardServiceImpl implements BoardService {
 	BoardDAO boardDao;
 	
 	@Override
-	public List<BoardDTO> b_list(String keyword, int begin, int end) {
+	public List<BoardDTO> b_list(String b_category, String keyword, int begin, int end) {
 		
-		return boardDao.b_list(keyword, begin, end);
+		return boardDao.b_list(b_category, keyword, begin, end);
 	}
 
 	@Override
@@ -52,9 +52,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int b_count(String keyword) {
+	public int b_count(String b_category, String keyword) {
 		
-		return boardDao.b_count(keyword);
+		return boardDao.b_count(b_category, keyword);
 	}
 
 	@Override
