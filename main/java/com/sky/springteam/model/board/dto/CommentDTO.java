@@ -4,14 +4,15 @@ import java.util.Date;
 
 public class CommentDTO {
 	
-	private int c_num;
-	private int b_num;
-	private String c_writer;
-	private String c_content;
-	private Date c_date;
-	private String c_ip;
-	private String c_show;
-	private String c_secret;
+	private int c_num;			//댓글번호
+	private int b_num;			//게시글번호	references team_board(b_num)
+	private String c_writer;	//작성자		references team_user(userid)
+	private String c_content;	//본문
+	private Date c_date;		//댓글 작성일
+	private String c_ip;		//작성자 ip
+	private String c_show;		//댓글삭제여부
+	private String c_secret;	//비밀댓글여부
+
 	public int getC_num() {
 		return c_num;
 	}
@@ -65,6 +66,5 @@ public class CommentDTO {
 		return "CommentDTO [c_num=" + c_num + ", b_num=" + b_num + ", c_writer=" + c_writer + ", c_content=" + c_content
 				+ ", c_date=" + c_date + ", c_ip=" + c_ip + ", c_show=" + c_show + ", c_secret=" + c_secret + "]";
 	}
-	
 	
 }

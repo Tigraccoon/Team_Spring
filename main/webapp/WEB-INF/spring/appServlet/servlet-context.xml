@@ -30,6 +30,7 @@
 	<resources location="/WEB-INF/views/json/" mapping="/json/**" />
 	<resources location="/WEB-INF/views/include/ckeditor/" mapping="/ckeditor/**" />
 	<resources location="/WEB-INF/views/include/summernote/" mapping="/summernote/**" />
+	<resources location="/WEB-INF/views/board/" mapping="/board/**" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 	<beans:bean
