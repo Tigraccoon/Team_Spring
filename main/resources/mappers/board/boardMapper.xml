@@ -27,21 +27,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		) WHERE rn BETWEEN #{begin} AND #{end}
 	</select>
 	
+	<!-- 글보기 -->
+	<select id="b_view" resultType="BoardDTO">
+		SELECT * FROM team_board 
+			WHERE b_num=#{b_num}
+	</select>
+	
+	<!-- 작성글 글번호 -->
+	<select id="getcurrval" resultType="int">
+		SELECT seq_board.currval FROM dual
+	</select>
+	
+	<!-- 댓글 갯수 -->
+	<select id="c_count" resultType="int">
+		SELECT count(*) FROM team_comment 
+			WHERE b_num=#{b_num}
+	</select>
 	
 <!-- /select -->
 	
 <!-- insert -->
-	
+	<!-- 글쓰기 -->
+	<insert id="b_insert">
+		INSERT INTO team_board 
+			(b_num, b_writer, b_category, b_subject, b_point, b_content, b_ip, b_secret) 
+			VALUES(seq_board.nextval, #{b_writer}, #{b_category}, #{b_subject}, #{b_point}, #{b_content}, #{b_ip}, #{b_secret})
+	</insert>
 	
 <!-- /insert -->
 	
 <!-- update -->
+	<!-- 조회수 증가 -->
+	<update id="b_upcount">
+		UPDATE team_board SET b_readcount=b_readcount+1
+			WHERE b_num=#{b_num}
+	</update>
 	
+	<!-- 글 수정 -->
+	<update id="b_update">
+		UPDATE team_board 
+			SET b_category=#{b_category}, b_subject=#{b_subject}, b_point=#{b_point}, b_content=#{b_content} 
+			, b_ip=#{b_ip}, b_secret=#{b_secret}
+			WHERE b_num=#{b_num} AND b_writer=#{b_writer}
+	</update>
 	
 <!-- /update -->
 	
 <!-- delete -->
-	
+	<update id="b_delete">
+		UPDATE team_board
+			SET b_show='N' 
+			WHERE b_num=#{b_num}
+	</update>
 	
 <!-- /delete -->
 

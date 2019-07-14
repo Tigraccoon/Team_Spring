@@ -22,7 +22,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" type="text/css" href="${path}/css/bootstrap.css">
-
+  <link rel="stylesheet" type="text/css" href="${path}/css/bootstrap.min.css">
   <!-- Custom Fonts -->
   <link rel="stylesheet" type="text/css" href="${path}/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">

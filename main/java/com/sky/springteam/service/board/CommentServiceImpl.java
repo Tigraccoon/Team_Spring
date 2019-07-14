@@ -18,25 +18,25 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public List<CommentDTO> c_list(int b_num) {
 		
-		return null;
+		return commentDao.c_list(b_num);
 	}
 
 	@Override
 	public void c_insert(CommentDTO dto) {
 		
-		
+		commentDao.c_insert(dto);
 	}
 
 	@Override
 	public void c_update(CommentDTO dto) {
 		
-		
+		commentDao.c_update(dto);
 	}
 
 	@Override
 	public void c_delete(int c_num) {
 		
-		
+		commentDao.c_delete(c_num);
 	}
 
 }

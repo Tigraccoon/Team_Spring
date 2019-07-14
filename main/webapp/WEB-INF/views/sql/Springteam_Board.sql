@@ -26,8 +26,13 @@ INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_conte
 
 select * from team_board where b_category like '%';
 
-select * from team_board;
+select * from team_board order by b_num desc;
 
+select count(*) from team_comment where b_num=1;
+
+SELECT seq_board.currval FROM dual;
+
+drop table team_comment;
 create table team_comment (
 c_num number not null primary key, --댓글 일련번호 
 b_num number not null references team_board(b_num),
@@ -35,8 +40,8 @@ c_writer varchar2(50) not null references team_user(userid),
 c_content clob not null, 
 c_date date default sysdate,
 c_ip varchar2(30) not null,	--작성자 ip
-c_show char(1) default '0',    --댓글 출력 여부
-c_secret char(1) default '0'
+c_show char(1) default 'Y',    --댓글 출력 여부
+c_secret char(1) default 'N'
 );
 
 drop sequence seq_comment;
@@ -44,11 +49,17 @@ create sequence seq_comment
 start with 1
 increment by 1;
 
+select seq_comment.nextval from dual;
+
 delete from team_comment;
 
 INSERT INTO team_comment(c_num, b_num, c_writer, c_content, c_ip) VALUES(seq_comment.nextval, 1, 'kim',  '테스트댓글이닷', '1.1.1.1'); 
 
 select * from team_comment;
+
+SELECT * FROM team_comment 
+			WHERE b_num=121
+            ORDER BY c_num ASC;
 
 commit;
 

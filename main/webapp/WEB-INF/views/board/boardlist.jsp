@@ -8,7 +8,6 @@
 <title>강의 후기</title>
 <%@ include file="../include/header.jsp" %>
 <script type="text/javascript">
-
 $(function(){
 	var keyword = '${map.keyword}';
 	
@@ -52,14 +51,11 @@ $(function(){
 		list('1', '웹프로그래밍고급', keyword);
 	});
 	
+	
 });
-
 function list(page, b_category, keyword){
 	location.href="${path}/board/boardlist.do?curPage="+page+"&b_category="+encodeURIComponent(b_category)+"&keyword="+encodeURIComponent(keyword);
 }
-
-
-
 </script>
 </head>
 <body>
@@ -134,7 +130,7 @@ function list(page, b_category, keyword){
 			<td>${list.b_category }</td>
 			<td>${list.b_writer }</td>
 			<td style="text-align: left;">
-				<a href="${path }/board/view.do?b_num=${list.b_num}">${list.b_subject } 
+				<a href="${path }/board/boardview.go?b_num=${list.b_num}">${list.b_subject } 
 					<c:if test="${list.c_count > 0 }">
 						<label style="color: black">(${list.c_count })</label>
 					</c:if>
@@ -152,7 +148,7 @@ function list(page, b_category, keyword){
 				<td>${list.b_category }</td>
 				<td>${list.b_writer }</td>
 				<td style="text-align: left;">
-					<a href="${path }/board/view.do?b_num=${list.b_num}">
+					<a href="${path }/board/boardview.go?b_num=${list.b_num}">
 					<i class="fa fa-lock"></i>&nbsp;${list.b_subject } 
 						<c:if test="${list.c_count > 0 }">
 							<label style="color: black">(${list.c_count })</label>
@@ -163,7 +159,7 @@ function list(page, b_category, keyword){
 				<td><fmt:formatDate value="${list.b_date }" pattern="yyyy-MM-dd hh:mm:ss E"/></td>
 			</tr>
 			</c:if>
-			<c:if test="${user.userid != list.writer }">
+			<c:if test="${user.userid != list.b_writer }">
 			<tr>
 				<th>${list.b_num }</th>
 				<td>${list.b_category }</td>
@@ -229,7 +225,8 @@ function list(page, b_category, keyword){
 </nav>
 <br>
 
-<button id="btnWrite" class="btn btn-block btn-primary">글쓰기</button><br>
+<a class="btn btn-block btn-primary" href="${path }/board/boardwrite.go">글쓰기</a>
+<br>
 
 <br><br><br>
 	</div>
