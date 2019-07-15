@@ -33,8 +33,7 @@
 	<resources location="/WEB-INF/views/board/" mapping="/board/**" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
-	<beans:bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
@@ -68,6 +67,13 @@
 			<mapping path="/user/pwdcheck.do"/>
 			<mapping path="/user/updateuser.do"/>
 			<mapping path="/user/deleteuser.do"/>
+			<mapping path="/board/boardwrite.go"/>
+			<mapping path="/board/boardwrite.do"/>
+			<mapping path="/board/boardupdate.do"/>
+			<mapping path="/board/boarddelete.do"/>
+			<mapping path="/board/c_insert.do"/>
+			<mapping path="/board/c_update.do"/>
+			<mapping path="/board/c_delete.do"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 		<interceptor>

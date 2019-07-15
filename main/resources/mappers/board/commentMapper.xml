@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- update -->
 	<!-- 댓글수정 -->
 	<update id="c_update">
-		UPDATE team_board 
+		UPDATE team_comment 
 			SET c_writer=#{c_writer}, c_content=#{c_content}, c_ip=#{c_ip}, c_secret=#{c_secret} 
 			WHERE c_num=#{c_num}
 	</update>
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- delete -->
 	<!-- 댓글삭제 -->
 	<update id="c_delete">
-		UPDATE team_board SET c_show='N' 
+		UPDATE team_comment SET c_show='N' 
 			WHERE c_num=#{c_num}
 	</update>
 	

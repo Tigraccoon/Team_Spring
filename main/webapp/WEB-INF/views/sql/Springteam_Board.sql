@@ -61,5 +61,10 @@ SELECT * FROM team_comment
 			WHERE b_num=121
             ORDER BY c_num ASC;
 
+UPDATE team_comment 
+			SET c_writer='kim', c_content='수정된댓글', c_ip='1/1/1/1', c_secret='N' 
+			WHERE c_num=53;
+
+
 commit;
 

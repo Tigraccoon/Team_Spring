@@ -137,9 +137,8 @@ public class BoardController {
 		return "redirect:/board/boardlist.do";
 	}
 	
-	@RequestMapping("commentinsert.do")
+	@RequestMapping("c_insert.do")
 	public String commentinsertdo(@ModelAttribute CommentDTO dto, HttpServletRequest request) {
-		
 		dto.setC_ip(request.getRemoteAddr());
 		
 		if(dto.getC_secret() == null) {
@@ -151,9 +150,8 @@ public class BoardController {
 		return "redirect:/board/boardview.go?b_num="+dto.getB_num();
 	}
 	
-	@RequestMapping("commentupdate.do")
+	@RequestMapping("c_update.do")
 	public String commentupdatedo(@ModelAttribute CommentDTO dto, HttpServletRequest request) {
-		
 		dto.setC_ip(request.getRemoteAddr());
 		
 		if(dto.getC_secret() == null) {
@@ -165,12 +163,11 @@ public class BoardController {
 		return "redirect:/board/boardview.go?b_num="+dto.getB_num();
 	}
 	
-	@RequestMapping("commentdelete.do")
-	public String commentdeletedo(@ModelAttribute CommentDTO dto) {
+	@RequestMapping("c_delete.do")
+	public String commentdeletedo(@RequestParam int c_num, @RequestParam int b_num) {
+		commentService.c_delete(c_num);
 		
-		boardService.b_delete(dto.getC_num());
-		
-		return "redirect:/board/boardview.go?b_num="+dto.getB_num();
+		return "redirect:/board/boardview.go?b_num="+b_num;
 	}
 	
 }

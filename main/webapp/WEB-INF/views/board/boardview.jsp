@@ -56,11 +56,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("#btnCommentInsert").click(function(){
-		document.commentInsertform.submit();
-	});
-	
-	
 	
 });
 
@@ -111,7 +106,7 @@ $(document).ready(function() {
 
 <!-- 댓글쓰기 -->
 <br><hr><br>
-<form action="${path }/board/commentinsert.do" method="post" id="commentInsertform" name="commentInsertform">
+<form action="${path }/board/c_insert.do" method="post" id="commentInsertform" name="commentInsertform">
 	<table class="table" style="width: 100%; text-align: left;">
 		<tr class="table-success">
 			<th colspan="2">댓글쓰기</th>
@@ -130,7 +125,7 @@ $(document).ready(function() {
 	    		</div>
 	    		<br>
 				<input type="hidden" name="b_num" id="b_num" value="${var.b_num }">
-				<button id="btnCommentInsert" class="btn btn-block btn-primary">확인</button>
+				<input type="submit" id="btnCommentInsert" class="btn btn-block btn-primary" value="확인">
 			</th>
 		</tr>
 	</table>
@@ -186,7 +181,7 @@ $(document).ready(function() {
 			<c:if test="${user.userid == war.c_writer || user.userid == var.b_writer}">
 				<i class="fa fa-lock"></i>&nbsp;${war.c_content }
 			</c:if>
-			<c:if test="${user.userid != war.c_writer || user.userid != var.b_writer}">
+			<c:if test="${user.userid != war.c_writer && user.userid != var.b_writer}">
 				<i class="fa fa-lock"></i>&nbsp;비밀 댓글입니다.
 			</c:if>
 		</td>
@@ -205,15 +200,13 @@ $(document).ready(function() {
 
 <!-- 댓글 수정 모달 -->
 
-<!-- 부트스트랩 document에서 modal관련 습득 후 적용 -->
+<c:forEach items="${war }" var="mo">
 
-
-<c:forEach items="${war }" var="war">
-
+<form action="${path}/board/c_update.do" method="post" id="commentupdateform" name="commentupdateform">
 <div class="container-fluid">
-<div class="row justify-content-center">
-		<div class="col col-10">
-<div class="modal fade" id="commentupdate${war.c_num}" tabindex="-1" role="dialog" aria-labelledby="commentupdateLabel" aria-hidden="true">
+  <div class="row justify-content-center">
+	<div class="col col-10">
+<div class="modal fade" id="commentupdate${mo.c_num}" tabindex="-1" role="dialog" aria-labelledby="commentupdateLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -223,55 +216,42 @@ $(document).ready(function() {
         </button>
       </div>
       <div class="modal-body">
-<form action="" method="post" id="commentupdateform" name="commentupdateform">
-<table class="table" style="width: 100%; text-align: left;">
+  <table class="table" style="width: 100%; text-align: left;">
 	<tr class="table-success">
 		<td width="100%">
-			<input name="c_writer" id="upc_writer" value="${user.userid }" readonly="readonly" class="form-control">
-			<div class="custom-control custom-switch">
-	 		 <c:choose>
-	 		  <c:when test="${war.c_secret == 'Y' }">
-	 		 	<input type="checkbox" checked="checked" id="upc_secret" name="c_secret" value="Y" class="custom-control-input">
-	 		  </c:when>
-	 		  <c:otherwise>
-   				<input type="checkbox" id="upc_secret" name="c_secret" value="Y" class="custom-control-input">
-	 		  </c:otherwise>
-	 		 </c:choose>
-      			<label class="custom-control-label" for="upc_secret">&nbsp;비밀글</label>
-	    	</div>
+			<input name="c_writer" id="c_writer${mo.c_num}" value="${user.userid }" readonly="readonly" class="form-control">
 			<br>
-			<textarea rows="3" cols="80" placeholder="댓글을 입력하세요" id="upc_content" class="form-control" name="c_content">${war.c_content}</textarea>
-			<input type="hidden" name="c_num" id="upc_num" value="${war.c_num }">
-      		<input type="hidden" name="b_num" id="upb_num" value="${var.b_num }">
+			<textarea rows="3" cols="80" placeholder="댓글을 입력하세요" id="c_content${mo.c_num}" class="form-control" name="c_content">${mo.c_content}</textarea>
+			<input type="hidden" name="c_num" id="c_num${mo.c_num}" value="${mo.c_num }">
+      		<input type="hidden" name="b_num" id="b_num${mo.c_num}" value="${var.b_num }">
 		</td>
 	</tr>
-</table>
-</form>
+  </table>
       </div>
       <div class="modal-footer">
-      	<input type="button" id="btnCommentUpdate" value="수정" class="btn btn-primary">
-		<input type="button" id="btnCommentDelete" value="삭제" class="btn btn-danger">
+      <div class="custom-control custom-switch">
+	 		 <c:choose>
+	 		  <c:when test="${mo.c_secret == 'Y' }">
+	 		 	<input type="checkbox" checked="checked" id="c_secret${mo.c_num}" name="c_secret" value="Y" class="custom-control-input">
+	 		  </c:when>
+	 		  <c:otherwise>
+   				<input type="checkbox" id="c_secret${mo.c_num}" name="c_secret" value="Y" class="custom-control-input">
+	 		  </c:otherwise>
+	 		 </c:choose>
+      			<label class="custom-control-label" for="c_secret${mo.c_num}">&nbsp;비밀글</label>
+	    	</div>
+      	<input type="submit" id="btnCommentUpdate${mo.c_num}" value="수정" class="btn btn-primary">
+      	<a href="${path}/board/c_delete.do?c_num=${mo.c_num}&b_num=${mo.b_num}" class="btn btn-danger"> 삭제</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
     </div>
   </div>
 </div>
-<script type="text/javascript">
-$(function(){
-	$("#btnCommentUpdate").click(function(){
-		document.commentupdateform.action="${path}/board/commentupdate.do";
-		document.commentupdateform.submit();
-	});
-	
-	$("#btnCommentDelete").click(function(){
-		document.commentupdateform.action="${path}/board/commentdelete.do";
-		document.commentupdateform.submit();
-	});
-});
-</script>
+
 	</div>
+  </div>
 </div>
-</div>
+</form>
 </c:forEach>
 
 

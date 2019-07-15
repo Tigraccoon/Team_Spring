@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT rownum AS rn, 
 			A.* FROM (
 				SELECT b_num,b_writer,b_subject,b_date,b_readcount,b_show,b_secret, b_category
-	  				,(select count(*) from team_comment c where c.b_num=b.b_num) c_count 					
+	  				,(select count(*) from team_comment c where c.b_num=b.b_num and c_show='Y') c_count 					
 					FROM team_board b, team_user u 
 					<include refid="search" />
 					ORDER BY b_num DESC 
@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 댓글 갯수 -->
 	<select id="c_count" resultType="int">
 		SELECT count(*) FROM team_comment 
-			WHERE b_num=#{b_num}
+			WHERE b_num=#{b_num} AND c_show='Y'
 	</select>
 	
 <!-- /select -->
