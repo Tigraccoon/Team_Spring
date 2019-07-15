@@ -48,23 +48,27 @@ function doSubmit(){
     			</div>
   			</div>
   		</c:if>
+  		
   		<div class="form-group row">
     		<label for="userid" class="col-md-4 col-form-label">Email</label>
     		<div class="col-md-8">
-      			<input type="email" class="form-control" id="email" name="email" placeholder="회원가입시 사용한 이메일을 입력해주세요." autocomplete="off">
+      			<input type="email" class="form-control" id="email" name="email" 
+      			       placeholder="회원가입시 사용한 이메일을 입력해주세요." autocomplete="off">
     		</div>
   		</div>
   		<div class="form-group row">
     		<label for="email" class="col-md-4 col-form-label">이름</label>
     		<div class="col-md-8">
-      			<input class="form-control" name="name" id="name" placeholder="회원가입시 사용한 이름을 입력해주세요." autocomplete="off">
+      			<input class="form-control" name="name" id="name" placeholder="회원가입시 사용한 이름을 입력해주세요." 
+      			autocomplete="off">
     		</div>
   		</div>
   		
 		<br>
 		<div class="form-group row justify-content-center">
 			<div class="col col-auto">
-				<input type="button" value="찾기" id="btnSubmit" class="btn btn-primary btn-lg" onclick="doSubmit()">
+				<input type="button" value="찾기" id="btnSubmit" class="btn btn-primary btn-lg" 
+				onclick="doSubmit()">
 			</div>
 		</div>
 	

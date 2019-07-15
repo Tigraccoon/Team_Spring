@@ -13,7 +13,9 @@
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col col-auto">
-	<h2>회원정보 확인을 위한 비밀번호 입력</h2>
+		
+  <h2 style="margin-top: 30px;"> | ${sessionScope.user.name }님 </h2>	
+<h4 style="color:green;"> &nbsp;&nbsp;&nbsp;회원정보 확인을 위한 비밀번호 입력</h4>
 	<br><br>
 	<c:if test="${message != '' }">
   			<div class="form-group row justify-content-center">

@@ -30,7 +30,8 @@
 	<div class="row justify-content-center">
 		<div class="col col-auto">
 
-		<h2>로그인</h2>
+		<h2 style="margin-top: 30px;"> | 로그인</h2>
+		<p>
 <form method="post" action="${path }/user/login.do">
    <div class="form-group row">
     <label for="userid" class="col-sm-4 col-form-label">아이디</label>
