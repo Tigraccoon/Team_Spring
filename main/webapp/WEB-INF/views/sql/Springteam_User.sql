@@ -69,7 +69,7 @@ address2 varchar2(500),
 joindate date default sysdate,
 lastlogin date default sysdate,
 user_group varchar2(2) default '1',
-class_name varchar2(100)
+class_name varchar2(100) default '-'
 );
 
 insert into team_user(userid, pwd, name, email, tel, user_group, class_name) 

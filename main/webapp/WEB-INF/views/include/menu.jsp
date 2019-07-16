@@ -44,11 +44,29 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 	            			href="${path }/user/signup.go"> 회원가입</a>
 	          </li>
           </c:if>
+          
           <c:if test="${user.userid != null }">
-	          <li class="nav-item mx-0 mx-lg-1">
-	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+          <!-- 일반회원 -->
+          	<c:if test="${user.user_group == '1' }">
+	          	<li class="nav-item mx-0 mx-lg-1">
+	            	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
 	            			href="${path }/user/pwdcheck.go"> 마이페이지</a>
-	          </li>
+	          	</li>
+            </c:if>
+          <!-- 강사 -->
+            <c:if test="${user.user_group == '2' }">
+	          	<li class="nav-item mx-0 mx-lg-1">
+	            	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+	            			href="${path }/user/teacher/studentslist.go"> 수강생관리</a>
+	          	</li>
+            </c:if>
+          <!-- 관리자 --> 
+            <c:if test="${user.user_group == '3' }">
+	          	<li class="nav-item mx-0 mx-lg-1">
+	            	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+	            			href="${path }/user/admin/alluserslist.go"> 회원관리</a>
+	          	</li>
+            </c:if>
 	          <li class="nav-item mx-0 mx-lg-1">
 	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
 	            			href="${path }/user/logout.do"> 로그아웃</a>

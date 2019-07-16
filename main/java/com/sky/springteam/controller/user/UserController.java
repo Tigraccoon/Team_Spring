@@ -1,5 +1,8 @@
 package com.sky.springteam.controller.user;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -212,6 +215,42 @@ public class UserController {
 		userService.deleteUser(dto.getUserid());
 		
 		return "redirect:/user/logout.do";
+	}
+	
+	@RequestMapping("teacher/studentslist.go")
+	public ModelAndView teacherstudentslistgo(ModelAndView mav, HttpSession session, 
+												@RequestParam(defaultValue="1") int curPage,
+												@RequestParam(defaultValue="") String keyword) {
+		if(keyword.equals("''")) {
+			keyword = "";
+			
+		} else {
+			try {
+				keyword = URLDecoder.decode(keyword, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		UserDTO dto = (UserDTO)session.getAttribute("user");
+		
+		mav.setViewName("admin/teacherlist");
+		mav.addObject("userslist", userService.userList("1", dto.getClass_name()));
+		
+		//유져 리스트 출력시키기, 유져 수 가져오는 메소드 dao, service, 쿼리문에 추가
+		
+		return mav;
+	}
+	
+	@RequestMapping("admin/alluserslist.go")
+	public ModelAndView adminalluserslistgo(ModelAndView mav, @RequestParam(defaultValue="1") int curPage,
+											@RequestParam(defaultValue="") String keyword) {
+		
+		mav.setViewName("admin/alluserlist");
+		mav.addObject("userslist", userService.userList("%", "%"));
+		
+		
+		return mav;
 	}
 	
 	

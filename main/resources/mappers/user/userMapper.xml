@@ -37,6 +37,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE email=#{email} AND name=#{name}
 	</select>
 	
+	<!-- 회원 리스트 -->
+	<select id="userlist" resultType="UserDTO">
+		SELECT * FROM (
+			SELECT rownum AS rn, 
+			A.* FROM (
+				SELECT userid, name, email, tel, zipcode, address1, address2, joindate
+						, lastlogin, user_group, class_name 
+					FROM team_user 
+					<include refid="search" />
+					ORDER BY userid DESC 
+					) A
+		) WHERE rn BETWEEN #{begin} AND #{end}
+	</select>
+		
 <!-- /select -->
 	
 <!-- insert -->
@@ -71,7 +85,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE userid=#{userid}
 	</delete>
 <!-- /delete -->
-	
+
+<!-- sql -->
+	<!-- 게시글 키워드 검색 -->
+	<sql id="search">
+		WHERE class_name LIKE #{class_name} 
+		AND user_group LIKE #{user_group} 
+		AND (userid LIKE #{keyword} OR name LIKE #{keyword})
+	</sql>
+<!-- /sql -->
 	
 </mapper>
 

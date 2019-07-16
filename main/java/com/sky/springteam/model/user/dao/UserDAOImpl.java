@@ -19,9 +19,14 @@ public class UserDAOImpl implements UserDAO {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<UserDTO> userList(String user_group) {
+	public List<UserDTO> userList(String user_group, String class_name) {
 		
-		return null;
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("user_group", user_group);
+		map.put("class_name", class_name);
+		
+		return sqlSession.selectList("user.userlist", map);
 	}
 	
 	@Override

@@ -15,9 +15,9 @@ public class UserServiceImpl implements UserService {
 	@Inject UserDAO userDao;
 	
 	@Override
-	public List<UserDTO> userList(String user_group) {
+	public List<UserDTO> userList(String user_group, String class_name) {
 		
-		return null;
+		return userDao.userList(user_group, class_name);
 	}
 
 	@Override
