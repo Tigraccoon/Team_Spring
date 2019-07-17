@@ -15,15 +15,15 @@ public class UserServiceImpl implements UserService {
 	@Inject UserDAO userDao;
 	
 	@Override
-	public List<UserDTO> userList(String user_group, String class_name) {
+	public List<UserDTO> userList(String user_group, String class_name, String keyword, int begin, int end) {
 		
-		return userDao.userList(user_group, class_name);
+		return userDao.userList(user_group, class_name, keyword, begin, end);
 	}
 
 	@Override
-	public int userCnt(String user_group) {
+	public int userCnt(String user_group, String class_name, String keyword) {
 		
-		return 0;
+		return userDao.userCnt(user_group, class_name, keyword);
 	}
 
 	@Override

@@ -72,12 +72,12 @@ user_group varchar2(2) default '1',
 class_name varchar2(100) default '-'
 );
 
-insert into team_user(userid, pwd, name, email, tel, user_group, class_name) 
-    values ('admin',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('admin'), '관리자', 'admin@admin.com', '000', '3', '관리자');
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('admin',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('admin'), '관리자', 'admin@admin.com', '000', '3', '관리자', '1', '1', '1');
     
 
-insert into team_user(userid, pwd, name, email, tel, user_group, class_name) 
-    values ('kim', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김철수', 'kim@kim.com', '000-0000-0000', '1', '정보처리기사실기');
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('kim', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김철수', 'kim@kim.com', '000-0000-0000', '1', '정보처리기사실기', '1', '1', '1');
 
 SELECT * FROM team_user  
 			WHERE userid='kim' AND pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234');

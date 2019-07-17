@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sky.springteam.model.user.dto.UserDTO;
+import com.sky.springteam.service.board.Pager;
 import com.sky.springteam.service.user.UserService;
 
 @Controller
@@ -234,21 +235,45 @@ public class UserController {
 		
 		UserDTO dto = (UserDTO)session.getAttribute("user");
 		
-		mav.setViewName("admin/teacherlist");
-		mav.addObject("userslist", userService.userList("1", dto.getClass_name()));
+		int usercount = userService.userCnt(dto.getUser_group(), dto.getClass_name(), "%"+keyword+"%");
 		
-		//유져 리스트 출력시키기, 유져 수 가져오는 메소드 dao, service, 쿼리문에 추가
+		Pager pager = new Pager(usercount, curPage);
+		int begin = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		
+		
+		mav.setViewName("admin/teacherlist");
+		mav.addObject("userslist", userService.userList("1", dto.getClass_name(), "%"+keyword+"%", begin, end));
+		mav.addObject("usercount", usercount);
 		
 		return mav;
 	}
 	
 	@RequestMapping("admin/alluserslist.go")
 	public ModelAndView adminalluserslistgo(ModelAndView mav, @RequestParam(defaultValue="1") int curPage,
-											@RequestParam(defaultValue="") String keyword) {
+											@RequestParam(defaultValue="") String keyword, 
+											@RequestParam(defaultValue="") String class_name) {
+		
+		if(keyword.equals("''")) {
+			keyword = "";
+			
+		} else {
+			try {
+				keyword = URLDecoder.decode(keyword, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		int usercount = userService.userCnt("%", class_name, "%"+keyword+"%");
+		
+		Pager pager = new Pager(usercount, curPage);
+		int begin = pager.getPageBegin();
+		int end = pager.getPageEnd();
 		
 		mav.setViewName("admin/alluserlist");
-		mav.addObject("userslist", userService.userList("%", "%"));
-		
+		mav.addObject("userslist", userService.userList("%", "%", "%"+keyword+"%", begin, end));
+		mav.addObject("usercount", usercount);
 		
 		return mav;
 	}

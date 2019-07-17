@@ -19,6 +19,8 @@ create sequence seq_board
 start with 1
 increment by 1;
 
+select * from team_board;
+
 INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '정보처리기사실기', 'kim', '테스트글', 5, '테스트글본문이다!', '1.1.1.1');
 INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '정보처리기사필기', 'kim', 'a', 5, 'a!', '1.1.1.1');
 INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '웹프로그래밍초급', 'kim', 'a', 5, 'a!', '1.1.1.1');
@@ -33,6 +35,7 @@ select count(*) from team_comment where b_num=1;
 SELECT seq_board.currval FROM dual;
 
 drop table team_comment;
+
 create table team_comment (
 c_num number not null primary key, --댓글 일련번호 
 b_num number not null references team_board(b_num),
@@ -53,7 +56,7 @@ select seq_comment.nextval from dual;
 
 delete from team_comment;
 
-INSERT INTO team_comment(c_num, b_num, c_writer, c_content, c_ip) VALUES(seq_comment.nextval, 1, 'kim',  '테스트댓글이닷', '1.1.1.1'); 
+INSERT INTO team_comment(c_num, b_num, c_writer, c_content, c_ip) VALUES(seq_comment.nextval, 36, 'kim',  '테스트댓글이닷', '1.1.1.1'); 
 
 select * from team_comment;
 

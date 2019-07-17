@@ -50,7 +50,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					) A
 		) WHERE rn BETWEEN #{begin} AND #{end}
 	</select>
-		
+	
+	<select id="usercount" resultType="int">
+		SELECT count(*) FROM team_user 
+			<include refid="search" />
+	</select>
 <!-- /select -->
 	
 <!-- insert -->
