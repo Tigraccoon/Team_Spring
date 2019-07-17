@@ -25,4 +25,4 @@ grant connect, resource, dba to springteam;
 conn sys as sysdba/1234
 
 --¾ÏÈ£È­
-GRANT EXECUTE ON DBMS_CRYPTO TO spring;
+GRANT EXECUTE ON DBMS_CRYPTO TO springteam;

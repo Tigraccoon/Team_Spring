@@ -67,7 +67,7 @@ function list(page, b_category, keyword){
 <h2>강의 후기</h2>
 <br>
 <div class="row">
-<div class="col col-6">
+<div class="col col-8">
 	
 <ul class="nav nav-phils" id="myTab" role="tablist">
   <li class="nav-item">

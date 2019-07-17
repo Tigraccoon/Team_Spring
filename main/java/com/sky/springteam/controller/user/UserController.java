@@ -235,7 +235,7 @@ public class UserController {
 		
 		UserDTO dto = (UserDTO)session.getAttribute("user");
 		
-		int usercount = userService.userCnt(dto.getUser_group(), dto.getClass_name(), "%"+keyword+"%");
+		int usercount = userService.userCnt("1", dto.getClass_name(), "%"+keyword+"%");
 		
 		Pager pager = new Pager(usercount, curPage);
 		int begin = pager.getPageBegin();
@@ -265,6 +265,17 @@ public class UserController {
 			}
 		}
 		
+		if(class_name.equals("") || class_name.equals("%")) {
+			class_name = "%";
+		
+		} else {
+			try {
+				class_name = URLDecoder.decode(class_name, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		int usercount = userService.userCnt("%", class_name, "%"+keyword+"%");
 		
 		Pager pager = new Pager(usercount, curPage);
@@ -272,7 +283,7 @@ public class UserController {
 		int end = pager.getPageEnd();
 		
 		mav.setViewName("admin/alluserlist");
-		mav.addObject("userslist", userService.userList("%", "%", "%"+keyword+"%", begin, end));
+		mav.addObject("userslist", userService.userList("%", class_name, "%"+keyword+"%", begin, end));
 		mav.addObject("usercount", usercount);
 		
 		return mav;

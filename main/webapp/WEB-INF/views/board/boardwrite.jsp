@@ -55,7 +55,7 @@ $(document).ready(function() {
 		<div class="col col-10">
 <br>
 <form action="${path}/board/boardwrite.do" method="post" id="writeform" name="writeform">
-<table class="table table-borderless" style="width: 100%;">
+<table class="table table-borderless" style="width: 100%; text-align: center;">
 	<tr class="table-primary">
 		<th colspan="2"><h2>글쓰기</h2></th>
 	</tr>
@@ -93,7 +93,7 @@ $(document).ready(function() {
 	<tr class="table-primary">
 		<th colspan="2"><label for="b_content">본문</label></th>
 	</tr>
-	<tr class="table-primary">
+	<tr class="table-primary" style="text-align: left;">
 		<td colspan="2"><textarea name="b_content" id="b_content" class="form-control"></textarea></td>
 	</tr>
 	<tr class="table-primary">

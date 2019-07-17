@@ -25,6 +25,9 @@ public class UserDAOImpl implements UserDAO {
 		
 		map.put("user_group", user_group);
 		map.put("class_name", class_name);
+		map.put("keyword", keyword);
+		map.put("begin", begin);
+		map.put("end", end);
 		
 		return sqlSession.selectList("user.userlist", map);
 	}

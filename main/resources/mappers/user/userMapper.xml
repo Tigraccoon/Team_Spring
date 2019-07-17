@@ -46,11 +46,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 						, lastlogin, user_group, class_name 
 					FROM team_user 
 					<include refid="search" />
-					ORDER BY userid DESC 
+					ORDER BY userid ASC 
 					) A
 		) WHERE rn BETWEEN #{begin} AND #{end}
 	</select>
 	
+	<!-- 회원수 -->
 	<select id="usercount" resultType="int">
 		SELECT count(*) FROM team_user 
 			<include refid="search" />
