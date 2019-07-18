@@ -64,7 +64,11 @@ function list(page, b_category, keyword){
 	<div class="row justify-content-center">
 		<div class="col col-10">
 <br>
-<h2>강의 후기</h2>
+<img src="${path }/img/log1.jpg" class="title">
+<div class="title2">
+<h2>강의 후기</h2> 
+<div style="opacity: 0.8; margin-top: -7px;">&nbsp;&nbsp;Real Reviw Story</div>
+</div>
 <br>
 <div class="row">
 <div class="col col-8">
@@ -234,6 +238,8 @@ function list(page, b_category, keyword){
 		</div>
 	</div>
 </div>
+
+<%@ include file="../include/footer.jsp" %>
 
 </body>
 </html>

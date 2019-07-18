@@ -52,9 +52,18 @@ function doSubmit(){
 	document.form1.submit();
 }
 </script>
+<style type="text/css">
+.log{text-align: center; padding-top: 57px;}
+.progress{width: 50%; height: auto; margin-left: auto; margin-right: auto;}
+.join{width: 30%; margin-left: auto; margin-right: auto;}
+.container-fluid{width: 70%;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
+<div class="log">
+<img src="${path }/img/join.jpg">
+</div>
 <div class="progress" style="height: 50px;">
 	<div class="progress-bar bg-primary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
 		<a href="${path }/user/signup1.go" class="btn btn-block text-dark"><i class="fa fa-check"></i>&nbsp;아이디/이메일 중복확인</a>
@@ -67,8 +76,7 @@ function doSubmit(){
 	</div>
 </div>
 
-<br><hr><br><br>
-  	
+<br><hr>
   	
 <div class="container-fluid">
  <div class="row justify-content-center">
@@ -146,7 +154,7 @@ function doSubmit(){
   </div>
  </div>
 </div>
-
-
+<div style="margin-top: 95px;"></div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

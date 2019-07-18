@@ -58,6 +58,7 @@
     <!-- 인터셉터 빈 등록 -->
 	<beans:bean id="loginInterceptor" class="com.sky.springteam.interceptor.LoginInterceptor" />
 	<beans:bean id="signupInterceptor" class="com.sky.springteam.interceptor.SignupInterceptor" />
+	<beans:bean id="adminInterceptor" class="com.sky.springteam.interceptor.AdminInterceptor" />
 	<!-- 인터셉터 호출을 위한 url mapping -->
 	<interceptors>
 		<interceptor>
@@ -82,6 +83,17 @@
 			<mapping path="/user/signup2.go"/>
 			<mapping path="/user/signup3.go"/>
 			<beans:ref bean="signupInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/user/admin/updateuser.do"/>
+			<mapping path="/user/admin/updateteacher.do"/>
+			<mapping path="/user/deleteuser.admin"/>
+			<mapping path="/user/deleteteacher.admin"/>
+			<mapping path="/user/teacher/studentslist.go"/>
+			<mapping path="/user/admin/alluserslist.go"/>
+			<mapping path="/user/admin/allteacherslist.go"/>
+			<mapping path="/user/admin/insertteacher.do"/>
+			<beans:ref bean="adminInterceptor"/>
 		</interceptor>
 	</interceptors>
 		    

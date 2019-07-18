@@ -160,6 +160,8 @@ public class UserController {
 	@RequestMapping("signup2.do")
 	public ModelAndView signup2do (@ModelAttribute UserDTO dto, ModelAndView mav) {
 		
+		dto.setUser_group("1");
+		dto.setClass_name("-");
 		userService.insertUser(dto);
 		mav.setViewName("user/signup3");
 		mav.addObject("userid", dto.getUserid());
@@ -410,4 +412,15 @@ public class UserController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("admin/insertteacher.do")
+	public String admininsertteacherdo (@ModelAttribute UserDTO dto) {
+		
+		dto.setUser_group("2");
+		
+		userService.insertUser(dto);
+		
+		return "redirect:/user/admin/allteacherslist.go";
+	}
+	
 }

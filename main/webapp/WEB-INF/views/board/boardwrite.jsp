@@ -115,6 +115,7 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-
+<br>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -26,10 +26,14 @@ function doSubmit(){
 	document.form1.submit();
 }
 </script>
+<style type="text/css">
+.log{text-align: center; padding-top: 85px;}
+.progress{width: 50%; height: auto; margin-left: auto; margin-right: auto;}
+.join{width: 30%; margin-left: auto; margin-right: auto;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
-
 
 <div class="progress" style="height: 50px;">
 	<div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
@@ -42,9 +46,10 @@ function doSubmit(){
 		<a href="#" class="btn btn-block text-dark"><i class="fa fa-spinner"></i>&nbsp;회원가입 완료</a>
 	</div>
 </div>
-
-<br><hr><br><br>
-
+<div class="log">
+<img src="${path }/img/join.jpg">
+</div>
+<br><br>
 <div class="container-fluid">
  <div class="row justify-content-center">
   <div class="col col-md-8">
@@ -117,7 +122,7 @@ function doSubmit(){
   </div>
  </div>
 </div>
-
-
+<div style="margin-top: 95px;"></div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

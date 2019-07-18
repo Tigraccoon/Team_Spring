@@ -6,17 +6,29 @@
 <meta charset="UTF-8">
 <title>비밀번호 확인</title>
 <%@ include file="../include/header.jsp" %>
+<style type="text/css">
+.masky{text-align: center;}
+.mypage{text-align: center; padding-top: 10px; }
+.emty{text-align: center; padding-top: 100px;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
-
+<div class="emty"><img src="${path }/img/log1.jpg"></div>
+<p>
+<div class="masky">	
+<h2> ${sessionScope.user.name }님 </h2> 
+<%-- <img src="${path }/img/log1.jpg" style="width: 100px; height: auto;">  --%>
+  &nbsp;&nbsp;&nbsp;회원정보 확인을 위한 비밀번호 입력	
+</div>
+<div class="mypage">
+<img src="${path }/img/mypage.jpg">
+</div>
+<p>
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col col-auto">
 		
-  <h2 style="margin-top: 30px;"> | ${sessionScope.user.name }님 </h2>	
-<h4 style="color:green;"> &nbsp;&nbsp;&nbsp;회원정보 확인을 위한 비밀번호 입력</h4>
-	<br><br>
 	<c:if test="${message != '' }">
   			<div class="form-group row justify-content-center">
     			<div class="col col-auto">
@@ -49,10 +61,10 @@
     </div>
    </div>
 </form>
-
 		</div>
 	</div>
 </div>
-
+<div style="margin-top: 160px;"></div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

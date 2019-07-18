@@ -149,7 +149,7 @@ function doDelete(){
 			<br>
 			<div class="form-group row justify-content-center">
 				<div class="col col-auto">
-					<input type="hidden" value="${user.class_name }", name="class_name">
+					<input type="hidden" value="${user.class_name }" name="class_name">
 					<input type="button" value="회원 정보 수정" id="btnUpdate" class="btn btn-primary btn-lg" onclick="doUpdate()">
 				</div>
 			</div>
@@ -180,6 +180,6 @@ function doDelete(){
  </div>
 </div>
 
-
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -7,11 +7,16 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <%@ include file="../include/header.jsp" %>
+<style type="text/css">
+.log{text-align: center; padding-top: 110px;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
 
-
+<div class="log">
+<img src="${path }/img/log.jpg">
+</div>
 <c:if test="${message1 != '' }">
   <div class="form-group row justify-content-center">
     <div class="col col-auto">
@@ -25,13 +30,11 @@
   </div>
 </c:if>
 
-
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col col-auto">
+<p style="padding-top: 5px;"> 
 
-		<h2 style="margin-top: 30px;"> | 로그인</h2>
-		<p>
 <form method="post" action="${path }/user/login.do">
    <div class="form-group row">
     <label for="userid" class="col-sm-4 col-form-label">아이디</label>
@@ -45,7 +48,7 @@
       <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password">
     </div>
   </div>
-
+<p style="padding-top: 1px;">
    <div class="form-group row justify-content-center">
     <div class="col col-auto">
     	<button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i>&nbsp;로그인</button>
@@ -54,10 +57,10 @@
     </div>
    </div>
 </form>
-
 		</div>
 	</div>
 </div>
-
+<div style="margin-top: 160px;"></div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

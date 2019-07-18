@@ -77,7 +77,13 @@ insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zip
 
 insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
     values ('gisa1',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김기사', 'gisa1@gisa1.com', '000', '2', '정보처리기사실기', '1', '1', '1');
-       
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('gisa2',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '강기사', 'gisa2@gisa1.com', '000', '2', '정보처리기사필기', '1', '1', '1');
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('web1',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '송웹', 'gisa1@gisa1.com', '000', '2', '웹프로그래밍고급', '1', '1', '1');
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('web2',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '공웹', 'gisa1@gisa1.com', '000', '2', '웹프로그래밍초급', '1', '1', '1');
+                   
 
 insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
     values ('kim', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김철수', 'kim@kim.com', '000-0000-0000', '1', '정보처리기사실기', '1', '1', '1');

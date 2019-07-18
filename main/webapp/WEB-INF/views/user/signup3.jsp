@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>회원가입 성공</title>
 <%@include file="../include/header.jsp" %>
+<style type="text/css">
+.log{text-align: center; padding-top: 85px;}
+.progress{width: 50%; height: auto; margin-left: auto; margin-right: auto;}
+.join{width: 30%; margin-left: auto; margin-right: auto;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
@@ -22,8 +27,11 @@
  	</div>
 </div>
   	
-<br><hr><br><br>
-  	
+<div class="log">
+<img src="${path }/img/join.jpg">
+</div>
+<br><br>
+
 <div class="container-fluid">
  <div class="row justify-content-center">
   <div class="col col-auto">
@@ -34,6 +42,6 @@
   </div>
  </div>
 </div>
-
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

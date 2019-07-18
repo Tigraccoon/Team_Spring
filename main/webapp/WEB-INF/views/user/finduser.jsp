@@ -77,5 +77,6 @@ function doSubmit(){
   </div>
  </div>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

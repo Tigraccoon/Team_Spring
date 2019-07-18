@@ -115,7 +115,7 @@ function list(page, keyword, class_name, align){
 			  <option value="웹프로그래밍초급">웹프로그래밍초급</option>
 			  <option value="웹프로그래밍고급">웹프로그래밍고급</option>
 			</select>
-		    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="게시물 검색" aria-label="Search">
+		    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="강사 검색" aria-label="Search">
 		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>&nbsp;검색</button>
 		</form>
 	</div>
@@ -221,7 +221,9 @@ function list(page, keyword, class_name, align){
 	</div>
 </div>
 					
-				
+	<button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#teacherinsert">
+		  	강사 계정 생성
+	</button>	
 		</div>
 	</div>
 </div>
@@ -371,6 +373,98 @@ function list(page, keyword, class_name, align){
 </c:forEach>
 
 <!-- 강사생성 만들기 -->
+<form action="${path }/user/admin/insertteacher.do" method="post">
+<div class="container-fluid">
+  <div class="row justify-content-center">
+	<div class="col col-10">
+<div class="modal fade" id="teacherinsert" tabindex="-1" role="dialog" aria-labelledby="teacherinsertLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="teacherinsertLabel">상세정보</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	
+	  	<div class="form-group row">
+    		<label for="userid" class="col-md-4 col-form-label">ID</label>
+    		<div class="col-md-8">
+      			<input class="form-control" id="userid" name="userid" placeholder="ID">
+    		</div>
+  		</div>
+  		
+  		<div class="form-group row">
+    		<label for="pwd" class="col-md-4 col-form-label">Password</label>
+    		<div class="col-md-8">
+      			<input type="text" class="form-control" id="pwd" name="pwd" placeholder="Password" autocomplete="off">
+    		</div>
+  		</div>
+  		
+  		<div class="form-group row">
+    		<label for="name" class="col-md-4 col-form-label">이름</label>
+    		<div class="col-md-8">
+      			<input class="form-control" id="name" name="name" placeholder="이름" autocomplete="off">
+    		</div>
+  		</div>
+  		
+  		<div class="form-group row">
+    		<label for="email" class="col-md-4 col-form-label">Email</label>
+    		<div class="col-md-8">
+      			<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+    		</div>
+  		</div>
+  		
+  		<div class="form-group row">
+    		<label for="tel" class="col-md-4 col-form-label">전화번호</label>
+    		<div class="col-md-8">
+      			<input type="tel" class="form-control" id="tel" name="tel" placeholder="010-1234-5678" autocomplete="off">
+    		</div>
+  		</div>
+  		
+  		<div class="form-group row">
+			<label for="zipcode" class="col-md-4 col-form-label">우편번호</label>
+			 	<div class="col-md-8">
+  					<input name="zipcode" id="zipcode" class="form-control" autocomplete="off" placeholder="우편번호를 입력하세요.">
+				</div>
+		</div>
+		<div class="form-group row">
+			<label for="address1" class="col-md-4 col-form-label">주소</label>
+    		<div class="col-md-8">
+  				<input name="address1" id="address1" class="form-control" placeholder="주소를 입력하세요.">
+  			</div>
+		</div>
+		<div class="form-group row">
+			<label for="address2" class="col-md-4 col-form-label">상세주소</label>
+    		<div class="col-md-8">
+				<input name="address2" id="address2" class="form-control" autocomplete="off" placeholder="상세 주소를 입력하세요.">
+  			</div>
+		</div>
+		<div class="form-group row">
+    		<label for="class_name" class="col-md-4 col-form-label">강의과목</label>
+    		<div class="col-md-8">
+      		<select class="form-control" name="class_name" id="class_name">
+			  <option selected value="정보처리기사필기">정보처리기사필기</option>
+			  <option value="정보처리기사실기">정보처리기사실기</option>
+			  <option value="웹프로그래밍초급">웹프로그래밍초급</option>
+			  <option value="웹프로그래밍고급">웹프로그래밍고급</option>
+			</select>
+    		</div>
+  		</div>
+      </div>
+      <div class="modal-footer">
+      	<input type="submit" value="강사 계정 생성" class="btn btn-primary">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	</div>
+  </div>
+</div>
+</form>
 
 </body>
 </html>

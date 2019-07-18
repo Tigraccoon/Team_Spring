@@ -114,7 +114,7 @@ function list(page, keyword, class_name, align){
 			  <option value="웹프로그래밍초급">웹프로그래밍초급</option>
 			  <option value="웹프로그래밍고급">웹프로그래밍고급</option>
 			</select>
-		    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="게시물 검색" aria-label="Search">
+		    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="회원 검색" aria-label="Search">
 		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>&nbsp;검색</button>
 		</form>
 	</div>
@@ -266,7 +266,7 @@ function list(page, keyword, class_name, align){
 	  		<div class="form-group row">
 	    		<label for="email${list.userid}" class="col-md-3 col-form-label">Email</label>
 	    		<div class="col-md-6">
-	      			<input type="email" class="form-control" id="email${list.userid}" name="email" readonly="readonly"  value="${list.email }">
+	      			<input type="email" class="form-control" id="email${list.userid}" name="email" value="${list.email }">
 	    		</div>
 	  		</div>
 	  		
@@ -280,13 +280,13 @@ function list(page, keyword, class_name, align){
 	  		<div class="form-group row">
 				<label for="zipcode${list.userid}" class="col-md-3 col-form-label">우편번호</label>
 				 	<div class="col-md-6">
-	  					<input name="zipcode" id="zipcode${list.userid}" class="form-control" autocomplete="off" readonly="readonly" placeholder="우편번호를 입력하세요."  value="${list.zipcode }">
+	  					<input name="zipcode" id="zipcode${list.userid}" class="form-control" autocomplete="off" placeholder="우편번호를 입력하세요."  value="${list.zipcode }">
 					</div>
 			</div>
 			<div class="form-group row">
 				<label for="address1${list.userid}" class="col-md-3 col-form-label">주소</label>
 	    		<div class="col-md-6">
-	  				<input name="address1" id="address1${list.userid}" class="form-control" readonly="readonly" placeholder="주소를 입력하세요."  value="${list.address1 }">
+	  				<input name="address1" id="address1${list.userid}" class="form-control" placeholder="주소를 입력하세요."  value="${list.address1 }">
 	  			</div>
 			</div>
 			<div class="form-group row">
