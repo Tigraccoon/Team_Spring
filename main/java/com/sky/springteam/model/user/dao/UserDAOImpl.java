@@ -19,7 +19,8 @@ public class UserDAOImpl implements UserDAO {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<UserDTO> userList(String user_group, String class_name, String keyword, int begin, int end) {
+	public List<UserDTO> userList(String user_group, String class_name, String keyword, 
+									int begin, int end, String align) {
 		
 		Map<String, Object> map = new HashMap<>();
 		
@@ -28,6 +29,7 @@ public class UserDAOImpl implements UserDAO {
 		map.put("keyword", keyword);
 		map.put("begin", begin);
 		map.put("end", end);
+		map.put("align", align);
 		
 		return sqlSession.selectList("user.userlist", map);
 	}

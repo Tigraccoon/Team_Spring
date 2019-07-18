@@ -141,7 +141,7 @@ function doDelete(){
 	  			</div>
 			</div>
 			<div class="form-group row">
-				<label for="address2" class="col-md-3 col-form-label">가입일</label>
+				<label class="col-md-3 col-form-label">가입일</label>
 	    		<div class="col-md-6">
 					<fmt:formatDate value="${user.joindate }" pattern="yyyy-MM-dd HH:mm:ss E"/>
 	  			</div>
@@ -149,6 +149,7 @@ function doDelete(){
 			<br>
 			<div class="form-group row justify-content-center">
 				<div class="col col-auto">
+					<input type="hidden" value="${user.class_name }", name="class_name">
 					<input type="button" value="회원 정보 수정" id="btnUpdate" class="btn btn-primary btn-lg" onclick="doUpdate()">
 				</div>
 			</div>

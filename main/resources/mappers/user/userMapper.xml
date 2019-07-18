@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 						, lastlogin, user_group, class_name 
 					FROM team_user 
 					<include refid="search" />
-					ORDER BY userid ASC 
+					<include refid="align" />
 					) A
 		) WHERE rn BETWEEN #{begin} AND #{end}
 	</select>
@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateuser">
 		UPDATE team_user SET pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(#{pwd}) 
 			, name=#{name}, email=#{email}, tel=#{tel}, zipcode=#{zipcode}
-			, address1=#{address1}, address2=#{address2}
+			, address1=#{address1}, address2=#{address2}, class_name=#{class_name} 
 			WHERE userid=#{userid}
 	</update>
 	
@@ -99,7 +99,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND (userid LIKE #{keyword} OR name LIKE #{keyword})
 	</sql>
 <!-- /sql -->
-	
+	<sql id="align">
+    		<choose>
+			<when test="align == 'useridasc' ">
+				ORDER BY userid ASC			
+			</when>
+			<when test="align == 'useriddesc' ">
+				ORDER BY userid DESC			
+			</when>
+			<when test="align == 'nameasc' ">
+				ORDER BY name ASC			
+			</when>
+			<when test="align == 'namedesc' ">
+				ORDER BY name DESC			
+			</when>
+			<otherwise>
+				ORDER BY userid ASC			
+			</otherwise>
+		</choose>
+  </sql>
 </mapper>
 
 

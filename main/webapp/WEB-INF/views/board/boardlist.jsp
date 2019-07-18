@@ -16,7 +16,7 @@ $(function(){
 		$("#board").attr("aria-labelledby", "all-tab");
 		$('#all-tab a[href="#board"]').tab('show');
 		
-		list('1', '', keyword);
+		list('1', '', '');
 	});
 	
 	$("#gisa1-tab").click(function(){
@@ -24,7 +24,7 @@ $(function(){
 		$("#board").attr("aria-labelledby", "gisa1-tab");
 		$('#gisa1-tab a[href="#board"]').tab('show');
 		
-		list('1', '정보처리기사필기', keyword);
+		list('1', '정보처리기사필기', '');
 	});
 	
 	$("#gisa2-tab").click(function(){
@@ -32,7 +32,7 @@ $(function(){
 		$("#board").attr("aria-labelledby", "gisa2-tab");
 		$('#gisa2-tab a[href="#board"]').tab('show');
 		
-		list('1', '정보처리기사실기', keyword);
+		list('1', '정보처리기사실기', '');
 	});
 	
 	$("#web1-tab").click(function(){
@@ -40,7 +40,7 @@ $(function(){
 		$("#board").attr("aria-labelledby", "web1-tab");
 		$('#web1-tab a[href="#board"]').tab('show');
 		
-		list('1', '웹프로그래밍초급', keyword);
+		list('1', '웹프로그래밍초급', '');
 	});
 	
 	$("#web2-tab").click(function(){
@@ -48,7 +48,7 @@ $(function(){
 		$("#board").attr("aria-labelledby", "web2-tab");
 		$('#web2-tab a[href="#board"]').tab('show');
 		
-		list('1', '웹프로그래밍고급', keyword);
+		list('1', '웹프로그래밍고급', '');
 	});
 	
 	

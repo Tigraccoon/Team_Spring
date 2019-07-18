@@ -74,15 +74,24 @@ class_name varchar2(100) default '-'
 
 insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
     values ('admin',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('admin'), '관리자', 'admin@admin.com', '000', '3', '관리자', '1', '1', '1');
-    
+
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('gisa1',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김기사', 'gisa1@gisa1.com', '000', '2', '정보처리기사실기', '1', '1', '1');
+       
 
 insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
     values ('kim', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '김철수', 'kim@kim.com', '000-0000-0000', '1', '정보처리기사실기', '1', '1', '1');
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('hong', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '홍철수', 'hong@hong.com', '000-0000-0000', '1', '정보처리기사실기', '1', '1', '1');
+insert into team_user(userid, pwd, name, email, tel, user_group, class_name, zipcode, address1, address2) 
+    values ('bong', PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234'), '봉철수', 'bong@bong.com', '000-0000-0000', '1', '정보처리기사실기', '1', '1', '1');
 
 SELECT * FROM team_user  
 			WHERE userid='kim' AND pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234');
 
 select * from team_user;
+
+select * from team_user where class_name like '-';
 
 UPDATE team_user SET lastlogin=sysdate
 			WHERE userid='kim';

@@ -210,6 +210,22 @@ public class UserController {
 		return "redirect:/user/logout.do";
 	}
 	
+	@RequestMapping("admin/updateuser.do")
+	public String adminupdateuserdo(@ModelAttribute UserDTO dto) {
+		
+		userService.updateUser(dto);
+		
+		return "redirect:/user/admin/alluserslist.go";
+	}
+	
+	@RequestMapping("admin/updateteacher.do")
+	public String adminupdateteacherdo(@ModelAttribute UserDTO dto) {
+		
+		userService.updateUser(dto);
+		
+		return "redirect:/user/admin/allteacherslist.go";
+	}
+	
 	@RequestMapping("deleteuser.do")
 	public String deleteuserdo(@ModelAttribute UserDTO dto) {
 		
@@ -218,16 +234,44 @@ public class UserController {
 		return "redirect:/user/logout.do";
 	}
 	
+	@RequestMapping("deleteuser.admin")
+	public String deleteuseradmin(@RequestParam(defaultValue="") String userid) {
+		
+		userService.deleteUser(userid);
+		
+		return "redirect:/user/admin/alluserslist.go";
+	}
+	
+	@RequestMapping("deleteteacher.admin")
+	public String deleteteacheradmin(@RequestParam(defaultValue="") String userid) {
+		
+		userService.deleteUser(userid);
+		
+		return "redirect:/user/admin/allteacherslist.go";
+	}
+	
 	@RequestMapping("teacher/studentslist.go")
 	public ModelAndView teacherstudentslistgo(ModelAndView mav, HttpSession session, 
 												@RequestParam(defaultValue="1") int curPage,
-												@RequestParam(defaultValue="") String keyword) {
+												@RequestParam(defaultValue="") String keyword, 
+												@RequestParam(defaultValue="useridasc") String align) {
 		if(keyword.equals("''")) {
 			keyword = "";
 			
 		} else {
 			try {
 				keyword = URLDecoder.decode(keyword, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(align.equals("''")) {
+			align = "useridasc";
+			
+		} else {
+			try {
+				align = URLDecoder.decode(align, "UTF-8");
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
@@ -243,8 +287,12 @@ public class UserController {
 		
 		
 		mav.setViewName("admin/teacherlist");
-		mav.addObject("userslist", userService.userList("1", dto.getClass_name(), "%"+keyword+"%", begin, end));
+		mav.addObject("userslist", userService.userList("1", dto.getClass_name(), "%"+keyword+"%", begin, end, align));
 		mav.addObject("usercount", usercount);
+		mav.addObject("class_name", dto.getClass_name());
+		mav.addObject("keyword", keyword);
+		mav.addObject("align", align);
+		mav.addObject("pager", pager);
 		
 		return mav;
 	}
@@ -252,7 +300,8 @@ public class UserController {
 	@RequestMapping("admin/alluserslist.go")
 	public ModelAndView adminalluserslistgo(ModelAndView mav, @RequestParam(defaultValue="1") int curPage,
 											@RequestParam(defaultValue="") String keyword, 
-											@RequestParam(defaultValue="") String class_name) {
+											@RequestParam(defaultValue="") String class_name,
+											@RequestParam(defaultValue="useridasc") String align) {
 		
 		if(keyword.equals("''")) {
 			keyword = "";
@@ -276,6 +325,18 @@ public class UserController {
 			}
 		}
 		
+		if(align.equals("''")) {
+			align = "useridasc";
+			
+		} else {
+			try {
+				align = URLDecoder.decode(align, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 		int usercount = userService.userCnt("%", class_name, "%"+keyword+"%");
 		
 		Pager pager = new Pager(usercount, curPage);
@@ -283,11 +344,70 @@ public class UserController {
 		int end = pager.getPageEnd();
 		
 		mav.setViewName("admin/alluserlist");
-		mav.addObject("userslist", userService.userList("%", class_name, "%"+keyword+"%", begin, end));
+		mav.addObject("userslist", userService.userList("1", class_name, "%"+keyword+"%", begin, end, align));
 		mav.addObject("usercount", usercount);
+		mav.addObject("class_name", class_name);
+		mav.addObject("keyword", keyword);
+		mav.addObject("align", align);
+		mav.addObject("pager", pager);
 		
 		return mav;
 	}
 	
-	
+	@RequestMapping("admin/allteacherslist.go")
+	public ModelAndView adminallteacherslistgo(ModelAndView mav, @RequestParam(defaultValue="1") int curPage,
+											@RequestParam(defaultValue="") String keyword, 
+											@RequestParam(defaultValue="") String class_name,
+											@RequestParam(defaultValue="useridasc") String align) {
+		
+		if(keyword.equals("''")) {
+			keyword = "";
+			
+		} else {
+			try {
+				keyword = URLDecoder.decode(keyword, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(class_name.equals("") || class_name.equals("%")) {
+			class_name = "%";
+		
+		} else {
+			try {
+				class_name = URLDecoder.decode(class_name, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(align.equals("''")) {
+			align = "useridasc";
+			
+		} else {
+			try {
+				align = URLDecoder.decode(align, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		int usercount = userService.userCnt("2", class_name, "%"+keyword+"%");
+		
+		Pager pager = new Pager(usercount, curPage);
+		int begin = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		
+		mav.setViewName("admin/allteacherlist");
+		mav.addObject("teacherslist", userService.userList("2", class_name, "%"+keyword+"%", begin, end, align));
+		mav.addObject("usercount", usercount);
+		mav.addObject("class_name", class_name);
+		mav.addObject("keyword", keyword);
+		mav.addObject("align", align);
+		mav.addObject("pager", pager);
+		
+		return mav;
+	}
 }
