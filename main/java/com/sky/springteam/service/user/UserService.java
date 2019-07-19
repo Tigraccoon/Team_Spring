@@ -16,5 +16,6 @@ public interface UserService {
 	public boolean pwdCheck(String userid, String pwd);
 	public boolean emailCheck(String email);
 	public UserDTO findUser(String email, String name);
+	public void classupdate(UserDTO dto);
 	
 }

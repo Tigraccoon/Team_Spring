@@ -339,7 +339,7 @@ public class UserController {
 		}
 		
 		
-		int usercount = userService.userCnt("%", class_name, "%"+keyword+"%");
+		int usercount = userService.userCnt("1", class_name, "%"+keyword+"%");
 		
 		Pager pager = new Pager(usercount, curPage);
 		int begin = pager.getPageBegin();

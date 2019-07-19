@@ -13,6 +13,7 @@ $(function(){
 	$('#userinfo-tab a[href="#userinfo"]').tab('show');
 	$('#myclass-tab a[href="#myclass"]').tab('show');
 	$('#deluser-tab a[href="#deluser"]').tab('show');
+	mypageList();
 });
 
 function doUpdate(){
@@ -64,6 +65,18 @@ function doDelete(){
 	}
 	
 }
+
+function mypageList(){
+	$.ajax({
+		type: "get",
+		url: "${path}/mypage/list.do?userid=${user.userid}",
+		success: function(result){
+			$("#mypageList").html(result);
+		}
+		
+	});
+}
+
 </script>
 </head>
 <body>
@@ -158,8 +171,7 @@ function doDelete(){
       
       <!-- 내 강의 -->
       <div class="tab-pane fade" id="myclass" role="tabpanel" aria-labelledby="myclass-tab">
-	      <h2>내 강의</h2>
-	 		<br><br>
+	  		<div id="mypageList"></div>
       </div>
       <!-- 회원탈퇴 -->
       <div class="tab-pane fade" id="deluser" role="tabpanel" aria-labelledby="deluser-tab">

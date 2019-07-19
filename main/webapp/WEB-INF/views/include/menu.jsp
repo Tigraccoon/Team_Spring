@@ -23,10 +23,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">강의소개</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path}/subject/list.do">강의소개</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">수강신청</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path}/subject/write.do">수강신청</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 

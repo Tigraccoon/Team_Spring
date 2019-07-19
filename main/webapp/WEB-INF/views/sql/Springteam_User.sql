@@ -102,8 +102,11 @@ select * from team_user where class_name like '-';
 UPDATE team_user SET lastlogin=sysdate
 			WHERE userid='kim';
             
-            
-delete from team_user;
+update team_user set class_name='-' where user_group='1';
+
+update team_user set pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('1234') where user_group='1';
+
+delete from team_user where user_group='1';
         
 commit;
 

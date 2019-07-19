@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="subject">
+	
+	<select id="subject_list" resultType="com.sky.springteam.model.subject.dto.SubjectDTO">
+		select * from subject
+		order by subject_name
+	</select>
+	
+	<select id="detail_subject" resultType="com.sky.springteam.model.subject.dto.SubjectDTO">
+		select * from subject
+		where subject_name=#{subject_name}
+	</select>
+	
+	<!-- 상품등록 -->
+	<insert id="insert">
+		insert into subject values (#{subject_name}, #{description}, #{prof_name}, #{price}, #{p_num}, #{subject_date}, #{img_url})
+	</insert>
+	
+	<!-- 상품정보 수정 -->
+	<update id="update_subject">
+		update subject 
+		set 
+		subject_name=#{subject_name}, description=#{description}, prof_name=#{prof_name}, price=#{price}, p_num=#{p_num}, subject_date=#{subject_date}, img_url=#{img_url} 
+		where subject_name=#{subject_name}
+	</update>
+	
+	<!-- 첨부파일 이름 -->
+	<select id="fileInfo" resultType="String">
+		select img_url from subject
+		where subject_name=#{subject_name}
+	</select>
+	
+	<!-- 상품 레코드 삭제 -->
+	<delete id="delete_subject">
+		delete from subject
+		where subject_name=#{subject_name}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
