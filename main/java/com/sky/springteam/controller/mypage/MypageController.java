@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sky.springteam.model.mypage.dto.MypageDTO;
 import com.sky.springteam.model.user.dto.UserDTO;
 import com.sky.springteam.service.mypage.MypageService;
-import com.sky.springteam.service.user.UserService;
 
 @Controller
 @RequestMapping("mypage/*")
@@ -24,8 +23,6 @@ public class MypageController {
 	
 	@Inject
 	MypageService mypageService;
-	@Inject
-	UserService userService;
 	
 	@RequestMapping("list.do")
 	public ModelAndView list(HttpSession session, ModelAndView mav) {
@@ -70,13 +67,10 @@ public class MypageController {
 //		}
 		//장바구니에 insert 처리 후 장바구니 목록으로 이동
 		dto.setUserid(userid);
-		
-		dto1.setClass_name(dto.getSubject_name());
-		userService.classupdate(dto1);
 		//if(mypageService.checkCart(subject_name)) {
 			//System.out.println("통과");
 			mypageService.insert(dto);
-			return "redirect:/mypage/list.do";
+			return "user/updateuser.jsp?#myclass";
 		//}else {
 			//System.out.println("통과1");
 		//	return "redirect:/subject/list.do";
@@ -90,7 +84,7 @@ public class MypageController {
 	public String delete(@RequestParam int cart_id, HttpSession session) {
 		if((UserDTO)session.getAttribute("user") != null)
 			mypageService.delete(cart_id);
-		return "redirect:/mypage/list.do";
+		return "user/updateuser.jsp?id=myclass";
 	}//delete()
 	
 	@RequestMapping("deleteAll.do")
@@ -103,7 +97,7 @@ public class MypageController {
 			mypageService.deleteAll(userid);
 		}
 		//장바구니 목록으로 이동
-		return "redirect:/mypage/list.do";
+		return "user/updateuser.jsp?id=myclass";
 	}//deleteAll()
 	
 	

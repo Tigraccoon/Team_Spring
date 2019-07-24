@@ -26,8 +26,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path}/subject/list.do">강의소개</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path}/subject/write.do">수강신청</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path }/instructor.do">강사소개</a>
           </li>
+          
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
             			href="${path }/board/boardlist.do?curPage=1&keyword=''">강의후기</a>
@@ -55,6 +56,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </c:if>
           <!-- 강사 -->
             <c:if test="${user.user_group == '2' }">
+	            <li class="nav-item mx-0 mx-lg-1">
+	            	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="${path}/subject/write.do">강의등록</a>
+	          	</li>
 	          	<li class="nav-item mx-0 mx-lg-1">
 	            	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
 	            			href="${path }/user/teacher/studentslist.go"> 수강생관리</a>
@@ -70,6 +74,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 	            	<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
 	            			href="${path }/user/admin/allteacherslist.go"> 강사관리</a>
 	          	</li>
+	          	<li class="nav-item mx-0 mx-lg-1">
+                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 
+                 href="${path}/chart/chart02.do" style="color:aqua; ">대쉬보드</a>
+          </li>
             </c:if>
 	          <li class="nav-item mx-0 mx-lg-1">
 	            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" 

@@ -2,6 +2,7 @@ package com.sky.springteam.service.user;
 
 import java.util.List;
 
+
 import com.sky.springteam.model.user.dto.UserDTO;
 
 public interface UserService {
@@ -16,6 +17,5 @@ public interface UserService {
 	public boolean pwdCheck(String userid, String pwd);
 	public boolean emailCheck(String email);
 	public UserDTO findUser(String email, String name);
-	public void classupdate(UserDTO dto);
-	
+
 }

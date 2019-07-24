@@ -13,7 +13,7 @@
 .p_name{width: 220px; height: auto; font-weight: bold;}
 .p_class{width: 350px; height: auto; font-weight: bold;}
 .pay{width: 250px; height: auto; font-weight: bold;}
-.img_c{text-align: center; padding-top: 30px; font-weight: bold;}
+.img_c{text-align: center; padding-top: 30px;}
 .pnum{color: red;}
 .bold{background-color: #29425b; color: white; font-size: 21px;}
 /* #2c3e50 , #29425b , #2c5d56  */
@@ -22,7 +22,7 @@
 <body>
 <%@ include file="../include/menu.jsp" %>
 <div class="img_c">
-<img src="${path }/img/lact.jpg" style="width: 270px; height: auto;">
+<img src="${path }/img/lact.jpg">
 </div>
 <p>
 <table border="1" class="sky_t">
@@ -47,9 +47,9 @@
 		<td class="p_class">
 		<a href="${path}/subject/detail/${row.subject_name}">${row.subject_name}</a>
 			<!-- 관리자에게만 편집 버튼 표시 -->
-			<%-- <c:if test="${sessionScope.admin_userid != null }"><br> --%>
+			<c:if test="${user.user_group == '3' }"><br>
 				<br><a href="${path}/subject/edit/${row.subject_name}">[편집]</a>
-			<%-- </c:if> --%>
+			</c:if>
 		</td>
 		
 		<td class="pay">

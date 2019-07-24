@@ -31,17 +31,18 @@
 <img src="${path }/img/join.jpg">
 </div>
 <br><br>
-
+ 	
 <div class="container-fluid">
  <div class="row justify-content-center">
   <div class="col col-auto">
   	
   	<h2><strong>${userid }</strong>님 회원가입에 성공하였습니다.</h2>
   	<br>
-  	<a href="${path }/user/login.go" class="btn btn-primary btn-block">로그인</a>
+  	<a href="${path }/user/login.go" class="btn btn-primary btn-block">로그인 하기</a>
   </div>
  </div>
 </div>
+<div style="margin-top: 100px;"></div>
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

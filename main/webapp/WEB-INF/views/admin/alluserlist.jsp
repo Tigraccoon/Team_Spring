@@ -69,6 +69,10 @@ function list(page, keyword, class_name, align){
 	location.href="${path}/user/admin/alluserslist.go?curPage="+page+"&keyword="+encodeURIComponent(keyword)+"&class_name="+encodeURIComponent(class_name)+"&align="+encodeURIComponent(align);
 }
 </script>
+<style type="text/css">
+.title{float:left; margin-right: 5px; margin-top: -6px; clear: both; opacity: 0.8;}
+.title2 h2, .title2 h4 {dispaly:inline;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
@@ -77,7 +81,11 @@ function list(page, keyword, class_name, align){
 	<div class="row justify-content-center">
 		<div class="col col-10">
 					<br>
-						<h2>일반회원관리</h2>
+					  <img src="${path }/img/log1.jpg" class="title">
+                      <div class="title2">
+                      <h2>일반회원관리</h2> 
+                      <div style="opacity: 0.8; margin-top: -7px;">General Membership Management</div>
+                      </div>
 					<br>
 					
 <div class="row">
@@ -252,7 +260,7 @@ function list(page, keyword, class_name, align){
 	  		<div class="form-group row">
 	    		<label for="pwd${list.userid}" class="col-md-3 col-form-label">Password</label>
 	    		<div class="col-md-6">
-	      			<input type="text" class="form-control" id="pwd${list.userid}" name="pwd" placeholder="Password" autocomplete="off">
+	      			<input type="text" class="form-control" id="pwd${list.userid}" name="pwd" placeholder="Password" autocomplete="off" required="required">
 	    		</div>
 	  		</div>
 	  		

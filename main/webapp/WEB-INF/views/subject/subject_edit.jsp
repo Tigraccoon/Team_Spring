@@ -5,11 +5,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <%@ include file="../include/header.jsp" %>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+    <script src="${path }/include/summernote/lang/summernote-ko-KR.js"></script>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#description').summernote({
+		placeholder: '본문을 입력하세요.',
+		width: 400,
+		height : 300, 
+	    minHeight : null,
+	    maxHeight : null,
+		lang : 'ko-KR'
+	});
+});
+</script>
+    
 <style type="text/css">
 table{margin-left: auto; margin-right: auto;}
 h2{text-align: center; padding-top: 30px;}
-body{background-image: url("${path}/img/bg.png"); background-repeat: no-repeat;}
+body{background-image: url("${path}/img/cute.png"); background-repeat: no-repeat;}
+.img_e{text-align: center; padding-top: 30px;}
 </style>
 </head>
 <body>
@@ -65,43 +88,45 @@ body{background-image: url("${path}/img/bg.png"); background-repeat: no-repeat;}
 		}
 	</script>
 	
-<h2>강의 수정</h2>
+<div class="img_e">
+<img src="${path }/img/modified.jpg">
+</div>
 	<p>
 	<form name="form1" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td >강의명</td>
-				<td><input name="subject_name" id="subject_name"
+				<td ><input name="subject_name" id="subject_name"
 						value="${dto.subject_name}"></td>
 			</tr>
 			<tr>
 				<td>강사명</td>
-				<td><input name="prof_name" id="prof_name"
+				<td ><input name="prof_name" id="prof_name"
 						value="${dto.prof_name}"></td>
 			</tr>
 			<tr>
 				<td>가격</td>
-				<td><input name="price" id="price" value="${dto.price}"></td>
+				<td ><input name="price" id="price" value="${dto.price}"></td>
 			</tr>
 			<tr>
 				<td>강의기간</td>
-				<td><input name="subject_date" id="subject_date"
+				<td ><input name="subject_date" id="subject_date"
 						value="${dto.subject_date}"></td>
 			</tr>
 			<tr>
 				<td>수강인원</td>
-				<td><input name="p_num" id="p_num"
+				<td ><input name="p_num" id="p_num"
 						value="${dto.p_num}"></td>
 			</tr>
 			<tr>
 				<td>강의설명</td>
-				<td><textarea rows="6" cols="37" name="description"
+				<td class="content"><textarea name="description"
 						id="description">${dto.description}</textarea></td>
 			</tr>
 			<tr>
 				<td>강의이미지</td>
-				<td><img src="${path}/img/${dto.img_url}" width="300px"
-						height="300px"> <br> <input type="file" name="file1"
+				<td ><img src="${path}/img/${dto.img_url}" width="300px;"
+						height="auto;"> <br> <input type="file" name="file1"
 						id="file1"></td>
 			</tr>
 			<tr>
@@ -126,12 +151,9 @@ body{background-image: url("${path}/img/bg.png"); background-repeat: no-repeat;}
 					<!-- 수정,삭제에 필요한 상품코드값을 hidden 태그로 넘김 --> 
 					<%-- <input type="hidden"
 						name="subject_name" value="${dto.subject_name}">  --%>
-						<input
-						type="button" value="수정" onclick="subject_update()"> 
-						<input
-						type="button" value="삭제" onclick="subject_delete()"> 
-						<input
-						type="button" value="목록"
+						<input type="button" class="btn btn-primary btn-lg" value="수정" onclick="subject_update()"> 
+						<input type="button" class="btn btn-primary btn-lg" value="삭제" onclick="subject_delete()"> 
+						<input type="button" class="btn btn-primary btn-lg" value="목록"
 						onclick="location.href='${path}/subject/list.do'">
 				</td>
 			</tr>

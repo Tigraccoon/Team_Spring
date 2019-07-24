@@ -22,9 +22,6 @@ public class MypageDAOImpl implements MypageDAO {
 
 	@Override
 	public void insert(MypageDTO dto) {
-		
-		System.out.println("\r"+dto.getSubject_name()+"\r");
-		
 		sqlSession.insert("mypage.insert", dto);
 
 	}

@@ -136,11 +136,5 @@ public class UserDAOImpl implements UserDAO {
 		return dto;
 	}
 
-	@Override
-	public void classupdate(UserDTO dto) {
-		
-		sqlSession.update("user.classupdate", dto);
-	}
-
 
 }

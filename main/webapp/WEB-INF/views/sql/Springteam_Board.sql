@@ -16,15 +16,36 @@ b_secret char(1) default 'N'  --비밀글 여부
 
 drop sequence seq_board;
 create sequence seq_board
-start with 1
+start with 817
 increment by 1;
 
 select * from team_board;
 
-INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '정보처리기사실기', 'kim', '테스트글', 5, '테스트글본문이다!', '1.1.1.1');
-INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '정보처리기사필기', 'kim', 'a', 5, 'a!', '1.1.1.1');
-INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '웹프로그래밍초급', 'kim', 'a', 5, 'a!', '1.1.1.1');
-INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) VALUES (seq_board.nextval, '웹프로그래밍고급', 'kim', 'a', 5, 'a!', '1.1.1.1');
+delete from team_board;
+
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip)
+    VALUES (seq_board.nextval, '정보처리기사실기', 'kim001', '테스트글', 5, '테스트글본문이다!', '1.1.1.1');
+    
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) 
+    VALUES (seq_board.nextval, '정보처리기사필기', 'kim003', '강의 후기 테스트글', 5, '강의 후기 테스트글 내용 내용 내용', '1.1.1.1');
+    
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) 
+    VALUES (seq_board.nextval, '웹프로그래밍초급', 'lee003', '게시글 테스트~', 5, '게시글 내용~ 내용~', '1.1.1.1');
+    
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) 
+    VALUES (seq_board.nextval, '웹프로그래밍고급', 'park001', '웹프로그래밍 후기', 5, '웹개발 후기 후기 후기', '1.1.1.1');
+
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip)
+    VALUES (seq_board.nextval, '정보처리기사실기', 'kim011', '테스트글', 5, '테스트글본문이다!', '1.1.1.1');
+    
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) 
+    VALUES (seq_board.nextval, '정보처리기사필기', 'kim005', '강의 후기 테스트글', 5, '강의 후기 테스트글 내용 내용 내용', '1.1.1.1');
+    
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) 
+    VALUES (seq_board.nextval, '웹프로그래밍초급', 'yoo003', '게시글 테스트~', 5, '게시글 내용~ 내용~', '1.1.1.1');
+    
+INSERT INTO  team_board(b_num, b_category, b_writer, b_subject, b_point, b_content, b_ip) 
+    VALUES (seq_board.nextval, '웹프로그래밍고급', 'park001', '웹프로그래밍 후기', 5, '웹개발 후기 후기 후기', '1.1.1.1');
 
 select * from team_board where b_category like '%';
 
@@ -72,4 +93,18 @@ SELECT count(*) FROM team_comment
 			WHERE b_num=47 AND c_show='Y';
             
 commit;
+
+
+declare --선언부
+    i number := 1;
+begin --실행부
+    while i<=200 loop
+        insert into team_board (b_num,b_subject,b_content,b_writer, b_category, b_point, b_ip)
+        values
+        ( (select nvl(max(b_num)+1,1) from team_board)
+        ,'제목'||i, '내용'||i, 'zoo', '웹프로그래밍고급', 3, '1.1.1.1');
+        i := i+1; --조건 변경
+    end loop;
+end;
+/
 

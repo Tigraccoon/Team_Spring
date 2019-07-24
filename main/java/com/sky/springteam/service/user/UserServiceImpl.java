@@ -13,7 +13,7 @@ import com.sky.springteam.model.user.dto.UserDTO;
 public class UserServiceImpl implements UserService {
 
 	@Inject UserDAO userDao;
-	
+
 	@Override
 	public List<UserDTO> userList(String user_group, String class_name, String keyword, 
 									int begin, int end, String align) {
@@ -73,12 +73,6 @@ public class UserServiceImpl implements UserService {
 	public UserDTO findUser(String email, String name) {
 		
 		return userDao.findUser(email, name);
-	}
-
-	@Override
-	public void classupdate(UserDTO dto) {
-		
-		userDao.classupdate(dto);
 	}
 
 }

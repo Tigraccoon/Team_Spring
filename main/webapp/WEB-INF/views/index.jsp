@@ -10,12 +10,13 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
 <body id="page-top">
 <%@ include file="include/menu.jsp" %>
  <!-- Header -->
-  <header class="masthead d-flex">
+  <header class="masthead d-flex"
+  style="margin-top: -70px;">
     <div class="container text-center my-auto">
       <h1 class="mb-1">SKY Education</h1>
       <h3 class="mb-5">
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">수강신청하기</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="${path}/subject/list.do">수강신청하기</a>
     </div>
     <div class="overlay"></div>
   </header>
@@ -29,7 +30,7 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
           <h2>SKY Education!</h2>
           <p class="lead mb-5">최고의 강사진들의 강의를
             <a href="https://unsplash.com/">지금</a>! 바로 신청하세요</p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#">강의/강사 소개</a>
+          <a class="btn btn-dark btn-xl js-scroll-trigger" href="${path }/instructor.do">강의/강사 소개</a>
         </div>
       </div>
     </div>
@@ -138,8 +139,12 @@ pageEncoding="UTF-8"%><%@ page session="true"%>
             <img class="img-fluid" src="${path }/img/portfolio-4.jpg" alt="">
           </a>
         </div>
+       <div style="margin-top: 50px; margin-left: auto; margin-right: auto;">
+<a class="btn btn-dark btn-xl js-scroll-trigger" href="${path }/board/boardlist.do?curPage=1&keyword=''"
+    style="text-align: center; ">강의후기 보러가기</a> 
       </div>
-    </div>
+       </div>
+     </div> 
   </section>
 
 

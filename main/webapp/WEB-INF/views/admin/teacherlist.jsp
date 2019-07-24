@@ -25,6 +25,10 @@ function list(page, keyword, align){
 	location.href="${path}/user/teacher/studentslist.go?curPage="+page+"&keyword="+encodeURIComponent(keyword)+"&align="+encodeURIComponent(align);
 }
 </script>
+<style type="text/css">
+.title{float:left; margin-right: 5px; margin-top: -6px; clear: both; opacity: 0.8;}
+.title2 h2, .title2 h4 {dispaly:inline;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
@@ -32,7 +36,11 @@ function list(page, keyword, align){
 	<div class="row justify-content-center">
 		<div class="col col-10">
 <br>
-<h2>수강생관리</h2>
+<img src="${path }/img/log1.jpg" class="title">
+<div class="title2">
+<h2>수강생 관리</h2> 
+<div style="opacity: 0.8; margin-top: -7px;">Student Management</div>
+</div>
 <br>
 <div class="row">
 <div class="col col-8">

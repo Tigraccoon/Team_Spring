@@ -13,7 +13,6 @@ $(function(){
 	$('#userinfo-tab a[href="#userinfo"]').tab('show');
 	$('#myclass-tab a[href="#myclass"]').tab('show');
 	$('#deluser-tab a[href="#deluser"]').tab('show');
-	mypageList();
 });
 
 function doUpdate(){
@@ -69,7 +68,7 @@ function doDelete(){
 function mypageList(){
 	$.ajax({
 		type: "get",
-		url: "${path}/mypage/list.do?userid=${user.userid}",
+		url: "${path}/mypage/list.do?userid=${dto.userid}",
 		success: function(result){
 			$("#mypageList").html(result);
 		}
@@ -78,6 +77,11 @@ function mypageList(){
 }
 
 </script>
+<style type="text/css">
+#v-pills-tab{width: 70%; margin-top: 10px;}
+#myclass{margin-left: -110px;}
+.leg{text-align: center; padding-top: 10px;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
@@ -86,7 +90,7 @@ function mypageList(){
   <div class="col-3">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="userinfo-tab" data-toggle="pill" href="#userinfo" role="tab" aria-controls="userinfo" aria-selected="true">회원정보관리</a>
-      <a class="nav-link" id="myclass-tab" data-toggle="pill" href="#myclass" role="tab" aria-controls="myclass" aria-selected="false">내 강의</a>
+      <a class="nav-link" id="myclass-tab" data-toggle="pill" href="#myclass" onclick="mypageList()" role="tab" aria-controls="myclass" aria-selected="false">내 강의</a>
       <a class="nav-link" id="deluser-tab" data-toggle="pill" href="#deluser" role="tab" aria-controls="deluser" aria-selected="false">회원 탈퇴</a>
     </div>
   </div>
@@ -94,7 +98,7 @@ function mypageList(){
     <div class="tab-content" id="v-pills-tabContent">
     <!-- 회원정보관리 -->
       <div class="tab-pane fade show active" id="userinfo" role="tabpanel" aria-labelledby="userinfo-tab">
-      	<h2>회원 정보</h2>
+      <img src="${path }/img/log1.jpg" style="clear: both; margin-top: 5px;"><h2 style="display: inline;">회원정보관리</h2>
  		<br><br>
 		<form action="${path }/user/updateuser.do" method="post" name="updateform" id="updateform">
 	  		<div class="form-group row">
@@ -171,19 +175,27 @@ function mypageList(){
       
       <!-- 내 강의 -->
       <div class="tab-pane fade" id="myclass" role="tabpanel" aria-labelledby="myclass-tab">
-	  		<div id="mypageList"></div>
+	      <div class="leg">
+           <img src="${path }/img/list.jpg" style="margin-left: -100px;">
+          </div>
+	      <div id="mypageList"></div>
       </div>
+	  <br><br>
+      <div class="tab-pane fade" id="payinfo" role="tabpanel" aria-labelledby="payinfo-tab">
+      </div>
+
       <!-- 회원탈퇴 -->
       <div class="tab-pane fade" id="deluser" role="tabpanel" aria-labelledby="deluser-tab">
-	      <h2>회원 탈퇴</h2>
-	 		<br><br>
-	 		
+	     <img src="${path }/img/log1.jpg" style="clear: both; margin-top: 5px;"><h2 style="display: inline;">회원 탈퇴</h2>
+	 		 <br><img src="${path }/img/exit.jpg" >
       		<form action="${path }/user/deleteuser.do" method="post" id="deleteform" name="deleteform">
       		<div class="form-group row justify-content-center">
 				<div class="col col-auto">
-      				<input type="hidden" value="${user.userid }" name="userid">
-      				<input type="button" value="회원 탈퇴" id="btnDelete" class="btn btn-danger btn-lg" onclick="doDelete()">
+      			<input type="hidden" value="${user.userid }" name="userid">
+      			ㅠ-ㅠ 정말로? &nbsp;&nbsp;&nbsp;
+      			<input type="button" value="회원 탈퇴" id="btnDelete" class="btn btn-danger btn-lg" onclick="doDelete()">
       			</div>
+      				<br><br><br>
       		</div>
       		</form>
       </div>

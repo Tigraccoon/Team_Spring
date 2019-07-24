@@ -43,7 +43,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	and t.userid=#{userid}
   </select>
 
-  
+   <!-- 수강과목별 금액 통계 -->
+     <select id="cart_money"
+	resultType="com.sky.springteam.model.mypage.dto.MypageDTO">
+        select c.subject_name , sum(s.price) price
+		from subject s , cart c
+		where s.subject_name=c.subject_name 
+        group by c.subject_name
+		order by subject_name
+	</select>
 </mapper>
 
 

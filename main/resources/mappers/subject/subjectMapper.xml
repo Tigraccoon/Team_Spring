@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="subject_list" resultType="com.sky.springteam.model.subject.dto.SubjectDTO">
 		select * from subject
-		order by subject_name
+		order by subject_name desc
 	</select>
 	
 	<select id="detail_subject" resultType="com.sky.springteam.model.subject.dto.SubjectDTO">

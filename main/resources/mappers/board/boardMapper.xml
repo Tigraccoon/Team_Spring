@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글 갯수 -->
 	<select id="b_count" resultType="int">
 		SELECT count(*) 
-			FROM team_board b, team_user u 
+			FROM team_board b 
 			<include refid="search" />
 	</select>
 	
@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			A.* FROM (
 				SELECT b_num,b_writer,b_subject,b_date,b_readcount,b_show,b_secret, b_category
 	  				,(select count(*) from team_comment c where c.b_num=b.b_num and c_show='Y') c_count 					
-					FROM team_board b, team_user u 
+					FROM team_board b
 					<include refid="search" />
 					ORDER BY b_num DESC 
 					) A
@@ -85,8 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- sql -->
 	<!-- 게시글 키워드 검색 -->
 	<sql id="search">
-		WHERE b.b_writer = u.userid 
-		AND b.b_show='Y' 
+		WHERE b.b_show='Y' 
 		AND b.b_category LIKE #{b_category} 
 		AND (b.b_writer LIKE #{keyword} OR b.b_subject LIKE #{keyword})
 	</sql>

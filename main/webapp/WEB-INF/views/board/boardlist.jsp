@@ -57,6 +57,10 @@ function list(page, b_category, keyword){
 	location.href="${path}/board/boardlist.do?curPage="+page+"&b_category="+encodeURIComponent(b_category)+"&keyword="+encodeURIComponent(keyword);
 }
 </script>
+<style type="text/css">
+.title{float:left; margin-right: 5px; margin-top: -6px; clear: both; opacity: 0.8;}
+.title2 h2, .title2 h4 {dispaly:inline;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>

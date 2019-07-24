@@ -5,7 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <%@ include file="../include/header.jsp" %>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+    <script src="${path }/include/summernote/lang/summernote-ko-KR.js"></script>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#description').summernote({
+		placeholder: '본문을 입력하세요.',
+		width: 600,
+		height : 250,
+	    minHeight : null,
+	    maxHeight : null,
+		lang : 'ko-KR'
+	});
+});
+</script>
+    
 <style type="text/css">
 table{margin-left: auto; margin-right: auto;}
 h2{text-align: center;}
@@ -68,41 +90,32 @@ function subject_write(){
 
 </script>
 <div class="img_e">
-<img src="${path }/img/enrol.jpg" style="width: 270px; height: auto;">
+<img src="${path }/img/insert.jpg" style="width: 270px; height: auto;">
 </div>
 <p>
 <form name="form1" method="post"
 	enctype="multipart/form-data">
+
+
+
 <table>
 	<tr>
-		<td>강의명</td>
-		<td><input name="subject_name" id="subject_name"></td>
+		<td><input name="subject_name" id="subject_name"  placeholder="강의명" required="required"></td>
+		<td><input name="prof_name" id="prof_name" placeholder="강사명" required="required"></td>
 	</tr>
 	<tr>
-		<td>강사명</td>
-		<td><input name="prof_name" id="prof_name"></td>
+		<td><input name="subject_date" id="subject_date" placeholder="강의기간" required="required"></td>
+		<td><input name="price" id="price" placeholder="가격" required="required"></td>
+		<td><input name="p_num" id="p_num" placeholder="수강인원" 
+		style="width:110px; margin-left: -50px;" required="required"></td>
 	</tr>
 	<tr>
-		<td>가격</td>
-		<td><input name="price" id="price"></td>
-	</tr>
-	<tr>
-		<td>강의기간</td>
-		<td><input name="subject_date" id="subject_date"></td>
-	</tr>
-	<tr>
-		<td>수강인원</td>
-		<td><input name="p_num" id="p_num"></td>
-	</tr>
-	<tr>
-		<td>강의설명</td>
-		<td><textarea rows="5" cols="60" 
-			name="description" id="description"></textarea>
+		<td colspan="3"><textarea name="description" id="description"></textarea>
 		</td>
 	</tr>
 	
 	<tr>
-		<td>강의이미지</td>
+		<td style="color:#2c3e50; font-weight: bold;">강의이미지 </td>
 		<td>
 			<input type="file" name="file1" id="file1"> 
 		</td>
@@ -126,9 +139,9 @@ function subject_write(){
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" value="등록" 
+			<input type="button" class="btn btn-primary btn-lg" value="등록" 
 				onclick="subject_write()">
-			<input type="button" value="목록"
+			<input type="button" class="btn btn-primary btn-lg" value="목록"
 onclick="location.href='${path}/subject/list.do'">
 		</td>
 	</tr>

@@ -70,6 +70,10 @@ function list(page, keyword, class_name, align){
 	location.href="${path}/user/admin/allteacherslist.go?curPage="+page+"&keyword="+encodeURIComponent(keyword)+"&class_name="+encodeURIComponent(class_name)+"&align="+encodeURIComponent(align);
 }
 </script>
+<style type="text/css">
+.title{float:left; margin-right: 5px; margin-top: -6px; clear: both; opacity: 0.8;}
+.title2 h2, .title2 h4 {dispaly:inline;}
+</style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
@@ -77,8 +81,12 @@ function list(page, keyword, class_name, align){
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col col-10">		
-					<br>
-						<h2>강사관리</h2>
+				     <br>
+                      <img src="${path }/img/log1.jpg" class="title">
+                      <div class="title2">
+                    <h2>강사 관리</h2> 
+                 <div style="opacity: 0.8; margin-top: -7px;">Instructor Management</div>
+                   </div>
 					<br>
 					
 <div class="row">
@@ -270,7 +278,7 @@ function list(page, keyword, class_name, align){
 	  		<div class="form-group row">
 	    		<label for="email${list.userid}" class="col-md-3 col-form-label">Email</label>
 	    		<div class="col-md-6">
-	      			<input type="email" class="form-control" id="email${list.userid}" name="email" readonly="readonly"  value="${list.email }">
+	      			<input type="email" class="form-control" id="email${list.userid}" name="email" value="${list.email }">
 	    		</div>
 	  		</div>
 	  		
@@ -284,13 +292,13 @@ function list(page, keyword, class_name, align){
 	  		<div class="form-group row">
 				<label for="zipcode${list.userid}" class="col-md-3 col-form-label">우편번호</label>
 				 	<div class="col-md-6">
-	  					<input name="zipcode" id="zipcode${list.userid}" class="form-control" autocomplete="off" readonly="readonly" placeholder="우편번호를 입력하세요."  value="${list.zipcode }">
+	  					<input name="zipcode" id="zipcode${list.userid}" class="form-control" autocomplete="off" placeholder="우편번호를 입력하세요."  value="${list.zipcode }">
 					</div>
 			</div>
 			<div class="form-group row">
 				<label for="address1${list.userid}" class="col-md-3 col-form-label">주소</label>
 	    		<div class="col-md-6">
-	  				<input name="address1" id="address1${list.userid}" class="form-control" readonly="readonly" placeholder="주소를 입력하세요."  value="${list.address1 }">
+	  				<input name="address1" id="address1${list.userid}" class="form-control" placeholder="주소를 입력하세요."  value="${list.address1 }">
 	  			</div>
 			</div>
 			<div class="form-group row">

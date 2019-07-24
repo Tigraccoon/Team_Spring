@@ -29,13 +29,13 @@ function doSubmit(){
 <style type="text/css">
 .log{text-align: center; padding-top: 85px;}
 .progress{width: 50%; height: auto; margin-left: auto; margin-right: auto;}
-.join{width: 30%; margin-left: auto; margin-right: auto;}
+.join{width: 31%; margin-left: auto; margin-right: auto;}
 </style>
 </head>
 <body>
 <%@ include file="../include/menu.jsp" %>
 
-<div class="progress" style="height: 50px;">
+<div class="progress">
 	<div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
 		<a href="#" class="btn btn-block text-light"><i class="fa fa-map-marker"></i>&nbsp;아이디/이메일 중복확인</a>
 	</div>
@@ -55,7 +55,8 @@ function doSubmit(){
   <div class="col col-md-8">
   	
   
-	<form action="${path }/user/signup1.do" method="post" id="form1" name="form1">
+	<form action="${path }/user/signup1.do" 
+	method="post" id="form1" name="form1" class="join">
 		
 		<c:if test="${error != 'nomessage' }">
   			<div class="form-group row justify-content-center">

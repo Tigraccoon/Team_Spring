@@ -19,12 +19,12 @@ $(function(){
 	});
 });
 </script>
-
+<style type="text/css">
+.bold{background-color: #29425b; color: white; font-size: 21px;}
+</style>
 </head>
 <body>
-      <div class="tab-pane" id="myclass" role="tabpanel" aria-labelledby="myclass-tab">
-	  	<h2>내 강의</h2>
-	    
+      <div class="tab-pane" id="myclass" role="tabpanel" aria-labelledby="myclass-tab">	    
 <c:choose>
 		<c:when test="${map.count == 0}">
 		수강신청을 하지 않았습니다.
@@ -34,7 +34,7 @@ $(function(){
 			<div class="col col-auto">
 		<form name="form1" method="post">
 			<table id="table1" border="1" width="700px">
-				<tr id="tr1">
+				<tr id="tr1" class="bold">
 					<th>&nbsp;</th>
 					<th>강의명</th>
 					<th>강사명</th>

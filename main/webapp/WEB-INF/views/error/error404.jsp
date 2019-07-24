@@ -6,7 +6,6 @@
 <%@ include file="../include/header.jsp" %>
 <meta charset="UTF-8">
 <style type="text/css">
-
 body {
 	background-image: url(http://p1.pichost.me/i/11/1344899.jpg);
 	background-size: cover;
@@ -14,10 +13,8 @@ body {
    font-family: Arial, sans-serif;
 	font-weight: bold;
 	font-size: 14px;
-
 text-align: center;
 }
-
 .wrap {
 	position: absolute;
 	top: 70%;
@@ -26,7 +23,6 @@ text-align: center;
 	margin-left: -89px;
 	text-align: center;
 }
-
 a {
 	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
 	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
@@ -38,21 +34,16 @@ a {
 	border-radius: 10px;
 	padding: 20px 30px;
 }
-
 a.button {
 	color: black;
 	box-shadow: rgba(204, 204, 255) 0 0px 0px 2px inset;
 		text-decoration: none;
 }
-
 a.button:hover {
 	color: rgb(255, 255, 255);
 	box-shadow: rgb(163, 163, 194) 0 0px 0px 90px inset;
 		text-decoration: none;
 }
-
-
-
 </style>
 <title>404error</title>
 
