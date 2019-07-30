@@ -82,6 +82,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE userid=#{userid}
 	</update>
 	
+	<update id="classupdate">
+		UPDATE team_user 
+			SET class_name=#{class_name} 
+			WHERE userid=#{userid}
+	</update>
+	
+	
 <!-- /update -->
 	
 <!-- delete -->

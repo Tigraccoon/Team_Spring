@@ -2,7 +2,7 @@ drop table team_board;
 
 create table team_board (
 b_num number not null primary key, --게시물번호 
-b_writer varchar2(100) not null references team_user(userid), --작성자
+b_writer varchar2(100) not null, --작성자
 b_category varchar2(50) not null, --카테고리, references 강좌명 넣을 예정
 b_subject varchar2(150) not null, --제목
 b_point number not null,    --별점
@@ -60,7 +60,7 @@ drop table team_comment;
 create table team_comment (
 c_num number not null primary key, --댓글 일련번호 
 b_num number not null references team_board(b_num),
-c_writer varchar2(50) not null references team_user(userid),
+c_writer varchar2(50) not null,
 c_content clob not null, 
 c_date date default sysdate,
 c_ip varchar2(30) not null,	--작성자 ip

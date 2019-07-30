@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sky.springteam.model.mypage.dto.MypageDTO;
 import com.sky.springteam.model.user.dto.UserDTO;
 import com.sky.springteam.service.mypage.MypageService;
+import com.sky.springteam.service.user.UserService;
 
 @Controller
 @RequestMapping("mypage/*")
@@ -23,6 +24,8 @@ public class MypageController {
 	
 	@Inject
 	MypageService mypageService;
+	@Inject
+	UserService userService;
 	
 	@RequestMapping("list.do")
 	public ModelAndView list(HttpSession session, ModelAndView mav) {
@@ -67,6 +70,9 @@ public class MypageController {
 //		}
 		//장바구니에 insert 처리 후 장바구니 목록으로 이동
 		dto.setUserid(userid);
+		
+		dto1.setClass_name(dto.getSubject_name());
+		userService.classupdate(dto1);
 		//if(mypageService.checkCart(subject_name)) {
 			//System.out.println("통과");
 			mypageService.insert(dto);
