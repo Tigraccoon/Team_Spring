@@ -19,6 +19,11 @@ public class MypageDAOImpl implements MypageDAO {
 	public List<MypageDTO> cartMoney() {
 		return sqlSession.selectList("mypage.cart_money");
 	}
+	
+	@Override
+	public MypageDTO cartTotal() {
+		return sqlSession.selectOne("mypage.cart_total");
+	}
 
 	@Override
 	public void insert(MypageDTO dto) {

@@ -52,6 +52,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         group by c.subject_name
 		order by subject_name
 	</select>
+	
+	<!-- 수강과목 총금액 -->
+	<select id="cart_total"
+	resultType="com.sky.springteam.model.mypage.dto.MypageDTO">
+       select sum(sum(s.price)) amount 
+		from subject s, cart c
+		where s.subject_name=c.subject_name 
+        group by c.cart_id
+	</select>
+	
 </mapper>
 
 

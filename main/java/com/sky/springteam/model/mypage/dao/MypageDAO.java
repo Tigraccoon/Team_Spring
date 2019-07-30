@@ -16,5 +16,6 @@ public interface MypageDAO {
 	public int countCart(String userid, String subject_name);
 	public void updateCart(MypageDTO dto);
 	public boolean checkCart(String subject_name);
+	public MypageDTO cartTotal();
 
 }

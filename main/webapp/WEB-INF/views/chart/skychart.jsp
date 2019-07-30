@@ -36,13 +36,16 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 /* 			var chart=new google.visualization.ColumnChart(
 					document.getElementById("chart_div"));	 */
 		chart.draw(data, {
-			title: "과목별 총금액",
+
 			//curveType: "function", //곡선처리
 			width: 800,
 			height: 640
 		});
 	}
 </script>
+ <style type="text/css">
+   .total{color: deeppink; font-weight: 500;  font-size: 25px;}
+ </style>
 <style type="text/css">
 .row{padding-top: 25px;}
 .chart{text-align: center;}
@@ -50,6 +53,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </head>
 
 <%@ include file="../include/menu.jsp" %>
+
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -114,6 +118,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>       
       </div>
+<p class="total">총 수익 :&nbsp;&nbsp;<fmt:formatNumber value="${carttotal }" pattern="###,###" />&nbsp;원</p>
 
 <div class="chart">
 <div id="chart_div"></div>

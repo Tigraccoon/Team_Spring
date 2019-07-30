@@ -19,6 +19,11 @@ public class MypageServiceImpl implements MypageService {
 	public List<MypageDTO> cartMoney() {
 		return mypageDao.cartMoney();
 	}
+	
+	@Override
+	public MypageDTO cartTotal() {
+		return mypageDao.cartTotal();
+	}
 
 	@Override
 	public void insert(MypageDTO dto) {
